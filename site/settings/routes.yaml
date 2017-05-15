@@ -1,0 +1,18 @@
+routes:
+  /articles/categories: articles/taxonomies
+  /search: search
+  /users: user/index
+  /users/{username}: user/profile
+  /account: user/account
+  /login: auth/login
+  /register: auth/register
+  /forgot-password: auth/password-forgot
+  /reset-password: auth/password-reset
+collections:
+  articles: '/articles/{slug}'
+  things: '/testimonials/{slug}'
+taxonomies:
+  tags: '/blog/categories/{slug}'
+  categories: '/articles/categories/{slug}'
+redirect: [ ]
+vanity: [ ]

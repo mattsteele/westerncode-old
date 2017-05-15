@@ -1,0 +1,35 @@
+title: Article Post
+hide: true
+taxonomies:
+  categories: true
+fields:
+  title:
+    type: title
+    display: Title
+    localizable: true
+  author:
+    type: users
+    display: Author
+    label: '{{ first_name }} {{ last_name }}'
+    mode: tags
+  article_featured_image:
+    type: assets
+    display: Article Featured Image
+    container: article_images
+    folder: /
+    max_files: 1
+    restrict: true
+  article_intro:
+    type: markdown
+    display: Article Intro
+    cheatsheet: true
+    container: article_images
+    folder: /
+    restrict_assets: true
+  article_content:
+    type: markdown
+    display: Article Content
+    cheatsheet: true
+    container: article_images
+    folder: /
+    restrict_assets: true

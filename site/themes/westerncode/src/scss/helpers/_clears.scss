@@ -1,0 +1,45 @@
+/*--------------------------------------------------------------
+  XX.X Clears
+--------------------------------------------------------------*/
+
+.break {
+  clear: both;
+}
+
+.clearfloat {
+  clear: both;
+  display: block;
+  height: 1px;
+  margin: -1px 0 0 0;
+}
+
+.line:after,
+.lastunit:after,
+.group:after,
+.group:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+  line-height: 0;
+  height: 0 !important;
+}
+
+.group {
+  display: table;
+}
+
+.line,
+.group,
+.group {
+  *zoom:1;
+}
+
+html[xmlns] .group {
+  display: block;
+}
+
+* html .group {
+  height: 1%;
+}

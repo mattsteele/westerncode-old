@@ -1,0 +1,16 @@
+<section class="regular">
+
+    <header>
+        <h1>Categories</h1>
+        <h2>articles posts filed under:</h2>
+    </header>
+
+    <article class="list">
+        <ul>
+        {{ taxonomy:categories sort="title" }}
+            <li><a href="{{ url }}">{{ title }}</a></li>
+        {{ /taxonomy:categories }}
+        </ul>
+    </article>
+
+</section>

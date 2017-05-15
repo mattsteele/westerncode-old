@@ -1,0 +1,78 @@
+/*  STYLEGUIDE
+=================================================================== /// */
+
+/* Set the layout of the styleguide color chips */
+
+.color-chip-spacing{
+	padding: 20px 0 20px 10px;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.color-chip{
+	padding: 10px 30px 10px 30px;
+	margin: 20px;
+	border: 1px solid black;
+}
+
+
+/* Blues */
+.blue-1{
+	color: $blue-1;
+}
+
+.blue-1-background{
+	background-color: $blue-1;
+}
+
+.blue-2{
+	color: $blue-2;
+}
+
+.blue-2-background{
+	background-color: $blue-2;
+}
+
+.blue-3{
+	color: $blue-3;
+}
+
+.blue-3-background{
+	background-color: $blue-3;
+}
+
+/* Reds */
+.red-1{
+	color: $red-1;
+}
+
+.red-1-background{
+	background-color: $red-1;
+}
+
+.red-2{
+	color: $red-2;
+}
+
+.red-2-background{
+	background-color: $red-2;
+}
+
+
+/* Greys */
+.grey-1{
+	color: $grey-1;
+}
+
+.grey-1-background{
+	background-color: $grey-1;
+}
+
+.grey-2{
+	color: $grey-2;
+}
+
+.grey-2-background{
+	background-color: $grey-2;
+}
+

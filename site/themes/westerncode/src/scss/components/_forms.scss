@@ -1,0 +1,252 @@
+/*--------------------------------------------------------------
+  XX.X Forms
+--------------------------------------------------------------*/
+
+legend {
+  padding: 0;
+  display: table;
+}
+fieldset {
+  border: 1px solid black;
+  padding: 1em;
+  margin: 0;
+  min-width: 0;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+form p {
+  padding: 10px 0;
+}
+
+label{
+  font-family: $font-sans-serif;
+  font-size: 22px;
+  color: black;
+  text-transform: uppercase;
+  display: block;
+  padding: 5px 0;
+  em{
+    color: $grey-2;
+  }
+  span{
+    font-size: 14px;
+  }
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    padding: 5px 10px 5px 10px;
+    height: 40px;
+}
+
+
+thead {
+  display: table-header-group;
+}
+
+tr{
+  page-break-inside: avoid;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: transparent;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  font-family: $font-sans-serif;
+  font-size: 22px;
+  font-style: italic;
+  color: $blue-1;
+  @media only screen and (max-width: 930px) {
+    font-size: 20px;
+  }
+  @media only screen and (max-width: 865px) {
+    font-size: 18px;
+  }
+}
+
+.table th{
+  color: $grey-2;
+  padding-bottom: 20px;
+}
+
+.table tr th:first-of-type{
+  text-align: left;
+  font-family: $font-sans-serif;
+  font-size: 22px;
+  color: $grey-2;
+}
+
+.table tbody tr td {
+  vertical-align: bottom;
+  border-bottom: 4px solid  $grey-2;
+  text-align: center;
+}
+
+.table tbody tr th {
+  vertical-align: bottom;
+  border-bottom: 4px solid $grey-2;
+  text-align: center;
+}
+
+
+/* -- Placeholder Text -- */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: #96968d;}
+input:-moz-placeholder, textarea:-moz-placeholder {color: #96968d;}
+input::-moz-placeholder, textarea::-moz-placeholder {color: #96968d;}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {color: #96968d;}
+
+.error-icon{
+  display: none;
+}
+
+.form-group{
+  position: relative;
+  margin-top: 16px;
+    &.has-error .form-control{
+    border: 2px solid $grey-2;
+  }
+
+  &.has-error .error-icon{
+      background-image: url(/dist/svg/form-error.svg);
+      height: 35px;
+      width: 35px;
+      display: inline-block;
+      position: absolute;
+      bottom: 4px;
+      right: 5%;
+      background-repeat: no-repeat;
+      @media only screen and (max-width: 865px) {
+        right: 3%;
+      }
+  }
+}
+
+.form-control {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: $blue-1;
+    background-color: $grey-1;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: none;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,
+    -webkit-box-shadow ease-in-out .15s;
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    @media only screen and (max-width: 865px) {
+      width: 100%;
+    }
+}
+
+
+.styled-select {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  width: 90%;
+  height: auto;
+  background: url(/dist/svg/formdropdown-resting.svg) no-repeat 100% center;
+  border: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+  &:hover{
+    background: url(/dist/svg/formdropdown-hover.svg) no-repeat 100% center;
+    border: 0;
+  }
+}
+
+.styled-select select {
+  display: block;
+  margin: 0;
+  white-space: nowrap;
+  width: 100%;
+  outline: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  border: 1px solid $grey-2;
+  border-radius: 0;
+}
+
+.styled-select:hover {
+   box-shadow: 0 0 3px rgba(0,0,0,.2);
+ }
+
+ .custom-control-description{
+  font-family: $font-sans-serif;
+  font-size: 16px;
+  text-transform: lowercase;
+ }
+
+ .checkbox-inline{
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+  p{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    display: inline;
+    margin-top: 40px;
+    font-weight: normal;
+    font-size: 15px;
+    text-transform: none;
+  }
+}
+
+.checkbox-wrapper{
+  .checkbox-inline{
+    @media only screen and (max-width: 660px) {
+      padding-left: 0;
+      display: block;
+    }
+  }
+  .checkbox-inline:first-of-type{
+    padding-left: 0;
+  }
+}
+
+.contact-include{
+  .form-control{
+    width: 100%;
+  }
+}

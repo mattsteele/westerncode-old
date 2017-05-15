@@ -1,0 +1,56 @@
+<div class="contact-one">
+  <div class="content-wrapper mobile-wrapper">
+
+      <h2>Work With Us</h2>
+      <h3>We're never too busy for the right project.</h3>
+      <h3>Feel free to drop us a line explaining how we can help.</h3>
+
+    <p>Say hello with an email to <a href="mailto:hello@westerncode.com">hello@westerncode.com</a> or use the form below.</p>
+  </div> <!-- content-wrapper mobile-wrapper -->
+</div><!-- contact-one -->
+
+<div class="contact-two">
+  <div class="content-wrapper mobile-wrapper">
+        {{ form:create in="contact" }}
+        <fieldset>
+
+            {{ if errors }}
+                <div class="alert alert-danger">
+                    {{ errors }}
+                        {{ value }}<br>
+                    {{ /errors }}
+                </div>
+            {{ /if }}
+
+            {{ if success }}
+                <div class="alert alert-success">
+                    Form was submitted successfully.
+                </div>
+            {{ /if }}
+
+            <div class="form-group">
+                <label for="name">What's Your Name? <span>(required)</span></label>
+                <input type="text" name="name" value="{{ old:name }}" class="form-control" aria-describedby="nameHelp" placeholder="Jane Doe"/>
+            </div>
+
+          <div class="form-group">
+            <label for="title">What Do You Do? <span>(required)</span></label>
+            <input type="title" class="form-control" id="title" aria-describedby="occupationHelp" placeholder="Business Owner">
+          </div><!-- form-group -->
+
+            <div class="form-group">
+                <label for="email">What's Your Email? <span>(required)</span></label>
+                <input type="text" name="email" value="{{ old:email }}" class="form-control" aria-describedby="emailHelp" placeholder="email@example.com" />
+            </div>
+
+            <div class="form-group">
+                <label>Comment</label>
+                <textarea name="comment" class="form-control" rows="6" placeholder="...">{{ old:comment }}</textarea>
+            </div>
+
+            <button class="button">Send Message</button>
+    </fieldset>
+        {{ /form:create }}
+
+ </div> <!-- content-wrapper mobile-wrapper -->
+</div><!-- contact-two -->

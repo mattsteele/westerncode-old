@@ -1,0 +1,31 @@
+	<div class="content-wrapper mobile-wrapper">
+			<header class="testimonial-header">
+				<h2><strong>Great Clients. Great Results.</strong></h2>
+				<br>
+			</header><!-- testimonial-header -->
+		</div><!-- content-wrapper mobile-wrapper -->
+
+	{{ collection:testimonials as="posts" }}
+		{{ posts }}
+
+		<div class="testimonial-wrapper {{ switch between='testimonial-odd|testimonial-even' }} group">
+		<div class="content-wrapper mobile-wrapper group">
+
+		<div class="testimonial-photo">
+			<img src="{{ glide src="{testimonial_image}" width="150" height="150" fit="crop" }}" alt="" />
+		</div> <!-- testimonial-photo -->
+
+		<div class="testimonial-words">
+			<blockquote>
+				<p><span itemprop="author">&ldquo;{{ testimonial_text }}&rdquo;</span></p>
+				<cite>&#8212; {{ testimonial_citation }}</cite>
+			</blockquote>
+		</div> <!-- testimonial-words -->
+
+			</div><!-- content-wrapper mobile-wrapper group -->
+		</div><!-- testimonial-wrapper group -->
+		{{ /posts }}
+	{{ /collection:testimonials }}
+
+
+

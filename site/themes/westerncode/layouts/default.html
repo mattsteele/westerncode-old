@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }} | {{ site_name }}</title>
+
+    {{ partial:meta }}
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/site/themes/westerncode/dist/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/site/themes/westerncode/dist/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/site/themes/westerncode/dist/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/site/themes/westerncode/dist/favicons/manifest.json">
+    <link rel="mask-icon" href="/site/themes/westerncode/dist/favicons/safari-pinned-tab.svg" color="#507796">
+    <meta name="theme-color" content="#507796">
+
+    <link rel="stylesheet" href="/site/themes/westerncode/dist/css/style.min.css">
+    {{ if segment_2 === "articles" || "testimonials"  }}
+        <script src="https://use.fontawesome.com/00a7473355.js"></script>
+    {{ /if }}
+    {{ google_analytics }}
+
+</head>
+
+<body class="section-{{ segment_1 or "home" }}" id="top">
+
+<header class="header">
+
+    <div class="header-wrapper group">
+    <a class="logo-wrapper" href="/">
+        <img src="/site/themes/westerncode/dist/svg/blue-blue-horizontal.svg" alt="Western Code">
+    </a>
+
+    {{ partial:nav }}
+
+    </div> <!--/ header-wrapper group-->
+</header> <!--/ header-->
+
+    {{ template_content }}
+
+<footer class="site-footer">
+        <div class="footer-one footer-underline-light">
+            <a href="/articles">Articles</a>
+        </div><!-- footer-one footer-underline-light -->
+        <div class="footer-two footer-underline-light">
+            <a href="/services">Services</a>
+        </div><!-- footer-two footer-underline-light -->
+        <div class="footer-three footer-underline-light">
+            <a href="/contact">Contact</a>
+        </div><!-- footer-three footer-underline-light -->
+        <div class="footer-four footer-underline-dark">
+            <a href="/about">About</a>
+        </div><!-- footer-four footer-underline-dark -->
+         <div class="footer-five footer-underline-dark">
+            <a href="/testimonials">Testimonials</a>
+        </div>
+        <div class="footer-six footer-underline-dark">
+            <a class="scrollable" href="#top">BACK TO THE TOP</a>
+        </div><!-- footer-six footer-underline-dark -->
+</footer><!-- site-footer -->
+
+    <script src="/site/themes/westerncode/dist/js/app.min.js"></script>
+
+</body>
+</html>

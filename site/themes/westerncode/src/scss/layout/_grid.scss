@@ -1,0 +1,33 @@
+/*  GRID
+=================================================================== /// */
+
+.header-wrapper{
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.content-wrapper{
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.recent-articles-wrapper{
+  width: 100%;
+  max-width: 1285px;
+  margin: 0 auto;
+}
+
+.headline-wrapper{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mobile-wrapper{
+	@media only screen and (max-width: 865px) {
+		padding-left: 2%;
+		padding-right: 2%;
+	}
+}

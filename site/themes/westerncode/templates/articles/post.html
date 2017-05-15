@@ -1,0 +1,16 @@
+
+<article class="article-single-item">
+
+<div class="article-single-item-hero" style="background-image: url({{ glide:article_featured_image }}"/></div><!-- hero -->
+
+	<div class="content-wrapper mobile-wrapper">
+			<h1>{{ title }}</h1>
+			<h3 class="article-listing-meta">{{ author_name }} | {{ date }}</h3>
+			<h3 class="article-listing-meta">{{ categories }}<a href="{{ url }}">{{ title }}</a>{{ if not last }}, {{ endif }}{{ /categories }} <span class="fa fa-tags"></span></h3>
+	        <p>{{ article_intro }}</p>
+			{{ article_content | markdown }}
+	</div> <!-- content-wrapper mobile-wrapper -->
+</article> <!--/ article-single-item -->
+ {{ partial:recent-articles }}
+
+

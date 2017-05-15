@@ -1,0 +1,12 @@
+<footer class="list article-footer">
+	<div class="regular">
+		<h6>Next Up <em>on the</em> Blog</h6>
+		{{ collection:next in="articles" limit="2" scope="tag" url:not="{url}"}}
+			{{ partial:block }}
+		{{ /collection:next }}
+	</div>
+</footer>
+
+    {{ collection:articles limit="3" }}
+        {{ partial:block }}
+    {{ /collection:articles }}

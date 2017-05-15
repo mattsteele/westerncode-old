@@ -1,0 +1,25 @@
+/*--------------------------------------------------------------
+  XX.X Mixins
+--------------------------------------------------------------*/
+
+/* Mixins are just variables with more than one property. */
+
+/* Name it with @mixin like so: */
+/*
+@mixin [mixin-name]{
+	property: value;
+	property: value;
+	property: value;
+	property: value;
+}
+*/
+
+/* Then call it later with @include like so: */
+
+/*
+.page-title {
+  @include [mixin-name];
+  padding: 4px;
+  margin-top: 10px;
+}
+*/

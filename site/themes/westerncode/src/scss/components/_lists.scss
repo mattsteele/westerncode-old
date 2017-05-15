@@ -1,0 +1,59 @@
+ul{
+    li{
+        font-style: normal;
+        padding-bottom: 20px;
+        a{
+            color: $blue-1;
+        }
+        @media only screen and (max-width: 865px) {
+            font-size: 16px;
+        }
+    }
+    @media only screen and (max-width: 865px) {
+        padding-right: 25px;
+    }
+}
+
+ol{
+    font-weight: normal;
+    li{
+        padding-bottom: 20px;
+        font-style: normal;
+        a{
+            color: $blue-1;
+        }
+        @media only screen and (max-width: 865px) {
+            font-size: 16px;
+        }
+    }
+    ol{
+        margin-top: .75em;
+    }
+}
+
+blockquote{
+    p{
+        font-size: 18px;
+        font-weight: normal;
+        font-style: italic;
+        line-height: 1.7;
+        font-family: $font-sans-serif;
+        color: black;
+    }
+    cite{
+        display: block;
+        font-family: $font-sans-serif;
+        font-style: normal;
+        text-align: right;
+        font-size: 18px;
+        line-height: 1.5em;
+        margin-top: 1em;
+        a{
+            color: $grey-1;
+            text-decoration: none;
+            &:hover{
+                color: $blue-2;
+            }
+        }
+    }
+}

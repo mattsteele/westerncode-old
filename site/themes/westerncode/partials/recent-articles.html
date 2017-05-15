@@ -1,0 +1,17 @@
+<div class="recent-posts-rail">
+    <div class="recent-articles-wrapper group">
+        <h2>What's New?</h2>
+
+        {{ collection:next in="articles" limit="3" scope="tag" url:not="{url}"}}
+
+        <div class="post-preview-card {{ switch between='post-preview-card-odd|post-preview-card-even' }}">
+            <a href="{{ url }}">
+                <img src="{{ glide src="{article_featured_image}" width="308" height="308" fit="crop" }} "alt="TITLE HERE" />
+                <div class="post-preview-info card-height">
+                <h2>{{ title }}</h2>
+            </div> <!--/ post-preview-info -->
+            </a>
+        </div> <!--/ post-preview-card post-preview-card-odd card-height -->
+        {{ /collection:next }}
+    </div> <!--/ recent-articles-wrapper group -->
+</div> <!--/ recent-posts-rail -->

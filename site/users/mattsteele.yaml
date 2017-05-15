@@ -1,0 +1,11 @@
+roles:
+  - d32e14fb-08c9-44c2-aaf8-21200852bafd
+email: matt@matt-steele.com
+first_name: Matt
+last_name: Steele
+user_image:
+  - /assets/img/user-images/matt_twitter_341x326.jpg
+id: b1121989-84ba-4f24-b234-75840298571d
+super: true
+password_hash: $2y$10$wrSezkMayExRKwsPRYGoyuOeyoBHmz75q68xa2zFvTAzvLY.WDWWu
+tags: [ ]

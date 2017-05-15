@@ -1,0 +1,9 @@
+title: Craig Freeman
+testimonial_text: |
+  I’ve had the pleasure of working with Matt for the last few years and have watched him take on several new roles with great enthusiasm. Matt has the experience to accurately assess client needs and project scope.
+  
+  Combined with the technical ability to efficiently construct a reliable site and the drive to pick up any new skills he needs to get the job done, Matt is the guy you want on your team.
+testimonial_image: /assets/img/testimonial-images/craigfreeman-150x150.jpg
+testimonial_citation: 'Craig Freeman, Front-End Engineer<br> <a target="_blank" href="http://craigfreeman.net/">craigfreeman.net <span class="fa fa-external-link"></span></a>'
+tags: [ ]
+id: f8ba9813-8ce0-487d-bcaf-7488ed698035

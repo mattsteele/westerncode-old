@@ -1,0 +1,21 @@
+  {{ collection:articles taxonomy="true" paginate="true" as="posts" limit="10" }}
+      {{ if no_results }}
+          <p>No "{{ title }}" posts.</p>
+      {{ /if }}
+
+      {{ posts }}
+        <article class="article-listing-item latest-article" style="background-image: url({{ glide:article_featured_image }});">
+          <a href="{{ url }}">
+          <h2><span class="fa fa-tags"></span>{{ categories }}<a href="{{ url }}">{{ title }}</a>{{ if not last }}, {{ endif }}{{ /categories }}</h2>
+          <div class="headline-wrapper mobile-wrapper">
+            <h1><span class="header-span">{{ title }}</span></h1>
+          </div><!-- headline-wrapper mobile-wrapper -->
+          </a>
+        </article> <!-- article-listing-item latest-article -->
+      {{ /posts }}
+
+      {{ partial:pagination }}
+  {{ /collection:articles }}
+
+  </div><!-- article-listing-wrapper -->
+</div> <!-- content-wrapper mobile-wrapper group -->

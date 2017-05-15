@@ -1,0 +1,8 @@
+driver: log
+from_email: matt@westerncode.com
+from_name: Matt Steele
+host: ""
+port: 587
+encryption: tls
+username: ""
+password: ""

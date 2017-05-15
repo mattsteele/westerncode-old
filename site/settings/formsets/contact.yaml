@@ -1,0 +1,31 @@
+title: Contact
+fields:
+  name:
+    display: Name
+    validate: required|min:2
+  title:
+    display: Title
+    validate: required|min:2
+  email:
+    display: Email Address
+    validate: required|email
+  comment:
+    display: Comment
+columns:
+  - name
+  - title
+  - email
+  - comment
+metrics:
+  - 
+    type: total
+    label: Total Responses
+  - 
+    type: sum
+    label: Sum of Favorite Number
+    field: number
+  - 
+    type: average
+    label: Average Favorite Number
+    field: number
+    precision: 1

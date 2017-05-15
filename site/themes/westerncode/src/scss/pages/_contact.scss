@@ -1,0 +1,41 @@
+/*  CONTACT STYLES
+=================================================================== /// */
+
+.contact-one{
+	padding-top: 100px;
+	padding-bottom: 50px;
+    background-color: $blue-2;
+    h2{
+        font-family: $font-sans-serif;
+        font-size: 50px;
+        line-height: 1.2;
+        color: white;
+        margin-top: 0;
+        margin-bottom: 23px;
+    }
+    h3{
+        font-family: $font-sans-serif;
+        font-size: 28px;
+        line-height: 1.2;
+        color: white;
+        margin-top: 0;
+        margin-bottom: 23px;
+    }
+    p{
+        padding-top: 20px;
+        color: white;
+    }
+}
+
+.contact-two{
+	padding-top: 7rem;
+	padding-bottom: 10rem;
+    form{
+        width: 60%;
+        margin: 0 auto;
+    }
+    .button{
+        float: right;
+        margin-top: 30px;
+    }
+}

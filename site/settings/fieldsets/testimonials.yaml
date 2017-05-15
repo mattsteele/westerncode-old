@@ -1,0 +1,23 @@
+title: Testimonials
+create_title: Add New Testimonial
+hide: true
+taxonomies:
+  tags: true
+fields:
+  title:
+    type: title
+    display: Title
+    localizable: true
+  testimonial_text:
+    type: textarea
+    display: Testimonial Text
+  testimonial_image:
+    type: assets
+    display: Testimonial Image
+    container: testimonial_images
+    folder: /
+    restrict: true
+    max_files: 1
+  testimonial_citation:
+    type: text
+    display: Testimonial Citation

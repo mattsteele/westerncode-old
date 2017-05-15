@@ -1,0 +1,217 @@
+/*--------------------------------------------------------------
+  XX.X Main Navigation
+--------------------------------------------------------------*/
+
+
+.nav-toggle {
+	display: none;
+	text-align: center;
+	@media screen and (max-width: 865px) {
+		display: block;
+		margin: 0;
+	}
+}
+
+.nav-toggle a {
+	display: block;
+	color: white;
+	font-family: $font-sans-serif;
+	background: url(/dist/svg/mobile-nav-hamburger.svg) no-repeat 92% 10px;
+	background-size: 32px 21px;
+	background-color: $grey-1;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-decoration: none;
+	border: 2px solid $blue-2;
+	&.open{
+		background: url(/dist/svg/mobile-nav-collapse.svg) no-repeat;
+		background-position: 92% 12px;
+		background-size: 30px 18px;
+	}
+	&:hover{
+		background-color: transparent;
+	}
+}
+
+
+
+.nav{
+	float: right;
+	margin-top: 36px;
+	width: 70%;
+	@media only screen and (max-width: 865px) {
+		clear: both;
+		width: 100%;
+		float: none;
+		margin-top: 20px;
+	}
+}
+
+.nav li a {
+	text-decoration: none;
+	@media only screen and (max-width: 865px) {
+		color: white;
+		font-size: 18px;
+	}
+}
+.nav li a:before {
+    background: $red-2;
+    content: '';
+    left: 0;
+    max-width: 0;
+    position: absolute;
+    top: 0;
+    transition: all .2s;
+    width: 100%;
+}
+.nav li.nav-button:hover a:before{
+	display: none;
+}
+
+.nav li:hover a:before,
+.nav li.current-nav a:before{
+    max-width: 100%;
+    bottom: 0;
+    left: 0%;
+    height: 8px;
+    top: auto;
+
+}
+
+
+.nav li span {
+	display: none;
+	@media only screen and (max-width: 865px) {
+		position: absolute;
+		display: block;
+		top: 6px;
+		right: 3%;
+		float: right;
+		font-size: 16px;
+		cursor: pointer;
+		color: dwhite;
+		font-size: 20px;
+		width: 50px;
+		height: 30px;
+		text-align: center;
+	}
+}
+
+
+
+.nav ul {
+	padding: 0;
+	list-style: none;
+	list-style-image: none;
+	text-transform: uppercase;
+	@media only screen and (max-width: 865px) {
+		display: none;
+		text-align: center;
+		float: none;
+		margin: 0;
+		padding: 0;
+		font-size: 15px;
+		text-align: center;
+		background: $grey-1;
+	}
+	li{
+		@media only screen and (max-width: 865px) {
+			display: block;
+			padding: 5px 0;
+			width: 100%;
+		}
+	}
+}
+
+.nav ul ul {
+	display: none;
+	position: absolute;
+	font-size: 14px;
+	left: 0;
+	top: 99%;
+	width: 175px;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+	background-color: $grey-1;
+	@media only screen and (max-width: 865px) {
+		position: static;
+		width: auto;
+	}
+}
+
+
+.nav > ul {
+	text-align: right;
+	font-size: 0;
+	@media only screen and (max-width: 865px) {
+		background: $blue-1;
+	}
+}
+
+
+.nav > ul > li {
+	font-size: 18px;
+	font-family: $font-sans-serif;
+	text-align: center;
+	position: relative;
+	display: inline-block;
+	padding: 4px 4px;
+	margin-right: 5%;
+	> a{
+		color: $blue-1;
+		text-decoration: none;
+		padding: 10px 0;
+		@media only screen and (max-width: 865px) {
+			color: white;
+		}
+	}
+	@media only screen and (max-width: 865px) {
+		margin-right: 0;
+	}
+}
+
+
+
+// .nav > ul > li:hover,
+// .nav > ul > li:active {
+// 	background-color: $grey-1;
+// 	cursor: pointer;
+// 	 a{
+// 		color: black;
+// 	}
+// }
+
+
+
+.nav > ul > li:hover ul {
+	display: block;
+	@media only screen and (max-width: 865px) {
+		display: none;
+	}
+}
+
+.nav > ul > li > ul {
+	@media only screen and (max-width: 865px) {
+		width: calc(100% + 4px);
+	}
+}
+
+
+// .nav > ul > li.current-nav{
+// 	border-bottom: 3px solid $blue-1;
+// 	@media screen and (max-width: 865px) {
+// 		border-bottom: 0;
+// 	}
+// 	& a{
+// 	color: black;
+// 	}
+// }
+
+
+// .nav .current-nav > a{
+// 	color: white;
+// }
+
+
+

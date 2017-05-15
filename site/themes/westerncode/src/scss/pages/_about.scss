@@ -1,0 +1,58 @@
+/*  ABOUT STYLES
+=================================================================== /// */
+
+.about {
+    display: block;
+    pointer-events: none
+}
+
+.about-one{
+	padding-top: 100px;
+	padding-bottom: 100px;
+    background-color: $blue-2;
+    h2{
+        font-family: $font-sans-serif;
+        font-size: 50px;
+        line-height: 1.2;
+        color: white;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    p{
+        color: white;
+    }
+}
+
+.about-two{
+    margin: 100px auto;
+}
+
+.about-three{
+    margin: 100px auto;
+    max-width: 840px;
+}
+
+.floating-box{
+    height: 570px;
+    width: 570px;
+    background: $blue-1;
+}
+
+
+.floating-box-text{
+    float: left;
+    padding: 50px 50px 50px 50px;
+    h2{
+        color: white;
+        font-family: $font-sans-serif;
+    }
+    h3{
+        color: white;
+        font-family: $font-sans-serif;
+    }
+}
+
+.floating-box-image{
+    float: right;
+    margin-top: -40%;
+}

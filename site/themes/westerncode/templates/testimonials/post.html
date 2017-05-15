@@ -1,0 +1,41 @@
+<div class="content-wrapper mobile-wrapper">
+    <article class="article-single-item">
+
+	<header>
+		<div class="meta clearfix">
+			<div class="author">
+				<img src="{{ glide:user_image }}" class="img-circle" width="48" height="48">
+				<div class="pull-left">
+					<a href="" class="name">{{ author_name }}</a>
+					<span class="length">{{ article_content | read_time }} minute read</span>
+				</div>
+			</div>
+			<div class="date">
+				{{ date format="F j, Y" }}
+			</div>
+		</div>
+		<h1>{{ title }}</h1>
+
+	</header>
+
+	<article class="content">
+
+		{{ if intro_image }}
+			<p><img src="{{ intro_image }}" class="intro-image"></p>
+		{{ /if }}
+
+		{{ article_intro }}
+		{{ article_content }}
+
+		<ul class="tags">
+		{{ tags }}
+			<li><a href="{{ url }}">{{ title }}</a></li>
+		{{ /tags }}
+		</ul>
+    </article> <!--/ article-single-item -->
+
+{{# {% include '_includes/recent-articles' %} #}}
+
+</div> <!-- content-wrapper mobile-wrapper -->
+
+{{ partial:article-footer }}

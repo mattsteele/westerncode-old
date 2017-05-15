@@ -1,0 +1,19 @@
+title: Default Globals
+hide: true
+taxonomies:
+  tags: true
+fields:
+  site_name:
+    type: text
+    display: Website Name
+    instructions: The name of your website
+    localizable: true
+  meta_description:
+    type: textarea
+    display: Meta Description
+  meta_keywords:
+    type: textarea
+    display: Meta Keywords
+  open_graph_image:
+    type: text
+    display: Open Graph Image

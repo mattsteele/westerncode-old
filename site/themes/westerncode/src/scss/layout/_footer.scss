@@ -1,0 +1,162 @@
+/*--------------------------------------------------------------
+  XX.X Footer
+--------------------------------------------------------------*/
+
+.site-footer{
+    text-align: center;
+    text-transform: uppercase;
+
+    a{
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.footer-one{
+    background-color: $red-2;
+    border-top: 8px solid rgba(0,0,0,0);
+    border-bottom: 8px solid rgba(0,0,0,0);
+    a{
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    &:hover a{
+        color: black;
+    }
+}
+
+
+.footer-two{
+    background-color: #B33D40;
+    border-top: 8px solid rgba(0,0,0,0);
+    border-bottom: 8px solid rgba(0,0,0,0);
+    a{
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    &:hover a{
+        color: black;
+    }
+}
+
+
+
+.footer-three{
+    background-color: $blue-2;
+    border-top: 8px solid rgba(0,0,0,0);
+    border-bottom: 8px solid rgba(0,0,0,0);
+    a{
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    &:hover a{
+        color: black;
+    }
+}
+
+.footer-four{
+    background-color: $blue-1;
+    border-top: 8px solid rgba(0,0,0,0);
+    border-bottom: 8px solid rgba(0,0,0,0);
+    a{
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    &:hover a{
+        color: $blue-2;
+    }
+}
+
+.footer-five{
+    border-top: 8px solid rgba(0,0,0,0);
+    border-bottom: 8px solid rgba(0,0,0,0);
+    a{
+        color: black;
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    &:hover a{
+        color: $blue-2;
+    }
+}
+
+.footer-six{
+    background-color: $grey-1;
+    border-top: 8px solid rgba(0,0,0,0);
+    border-bottom: 8px solid rgba(0,0,0,0);
+     a{
+        color: $red-1;
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+    &:hover a{
+        color: $blue-2;
+    }
+
+}
+
+.footer-seven .more{
+    background-color: $grey-1;
+    border-top: 8px solid rgba(0,0,0,0);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: $blue-2;
+    a{
+        display: block;
+    }
+    &:hover a{
+        color: $blue-2;
+    }
+
+}
+
+.footer-underline-light {
+  position: relative;
+}
+.footer-underline-light:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 8px;
+  background-color: white;
+  content: "";
+  transition: width 0.4s;
+}
+
+.footer-underline-light:hover:after {
+  width: 100%;
+}
+
+
+.footer-underline-dark {
+  position: relative;
+}
+
+.footer-underline-dark:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 8px;
+  background-color: $blue-2;
+  content: "";
+  transition: width 0.4s;
+}
+
+.footer-underline-dark:hover:after {
+  width: 100%;
+}

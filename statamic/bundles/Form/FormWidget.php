@@ -24,7 +24,7 @@ class FormWidget extends Widget
             'form'        => $form,
             'format'      => $this->get('date_format', $form->dateFormat()),
             'fields'      => $this->get('fields', []),
-            'submissions' => collect_content($form->submissions())->limit($this->getInt('limit', 5))->reverse()->toArray(),
+            'submissions' => collect_content($form->submissions())->reverse()->limit($this->getInt('limit', 5))->toArray(),
             'title'       => $this->get('title', $form->title())
         ];
 

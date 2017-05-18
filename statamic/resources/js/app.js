@@ -136,6 +136,15 @@ var vm = new Vue({
         },
         'setFlashError': function (msg) {
             this.flashError = msg
+        },
+        'changesMade': function (changed) {
+            // If true, a confirmation dialog will be displayed when the user tries to
+            // navigate away (or refresh, etc). If false, the dialog will no longer show.
+            if (changed) {
+                window.onbeforeunload = () => '';
+            } else {
+                window.onbeforeunload = null;
+            }
         }
     }
 });

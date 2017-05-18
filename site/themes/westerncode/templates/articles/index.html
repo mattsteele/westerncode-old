@@ -1,17 +1,18 @@
 {{ collection:articles as="posts" paginate="true" limit="3" }}
 	{{ posts }}
-		<article class="article-listing-item latest-article" style="background-image: url({{ glide:article_featured_image }});">
-			<a href="{{ url }}">
-				{{ if paginate:current_page|is == 1 and first  }}
-					<h2>Latest</h2>
-				{{ else }}
-				<h2><span class="fa fa-tags"></span>{{ categories }}<a href="{{ url }}">{{ title }}</a>{{ if not last }}, {{ endif }}{{ /categories }}</h2>
-				{{ endif }}
-				<div class="headline-wrapper mobile-wrapper">
-					<h1><a href="{{ url }}"><span class="header-span">{{ title }}</span></a></h1>
-				</div><!-- headline-wrapper mobile-wrapper -->
-			</a>
-		</article> <!-- article-listing-item latest-article -->
+
+	<article class="article-listing-item" style="background-image: url({{ glide:article_featured_image }});">
+			{{ if paginate:current_page|is == 1 and first  }}
+				<h2>Latest</h2>
+			{{ else }}
+			<h2><span class="fa fa-tags"></span>&nbsp;{{ categories }}<a href="{{ url }}">{{ title }}</a>{{ if not last }}, {{ endif }}{{ /categories }}</h2>
+			{{ endif }}
+			<div class="headline-wrapper mobile-wrapper">
+				<a class="article-trigger" href="{{ url }}"></a>
+				<h1><a href="{{ url }}"><span class="header-span">{{ title }}</span></a></h1>
+			</div><!-- headline-wrapper mobile-wrapper -->
+	</article> <!-- article-listing-item -->
+
 	{{ /posts }}
 
 	{{ partial:pagination }}

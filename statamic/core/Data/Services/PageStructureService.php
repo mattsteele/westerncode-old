@@ -88,7 +88,7 @@ class PageStructureService extends BaseService
             if ($include_entries) {
                 foreach (Page::whereUri($url)->entries()->all() as $entry) {
                     $entries[] = [
-                        'page' => $entry,
+                        'page' => $entry->in($locale)->get(),
                         'depth' => $current_depth
                     ];
                 }

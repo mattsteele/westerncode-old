@@ -31,7 +31,7 @@ class TaxonomyTermsController extends CpController
         $title = Taxonomy::whereHandle($group)->title();
 
         return view('taxonomies.terms', [
-            'title' => 'Taxonomies in ' . $title,
+            'title' => $title,
             'group' => $group,
             'group_title' => $title,
             'new_taxonomy_link' => route('taxonomy.create', compact('group'))

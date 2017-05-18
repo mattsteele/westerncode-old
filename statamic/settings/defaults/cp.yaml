@@ -7,4 +7,4 @@ date_format: Y/n/d
 locale: null
 
 # The number of items to show on each paginated page.
-pagination_size: 25
+pagination_size: 50

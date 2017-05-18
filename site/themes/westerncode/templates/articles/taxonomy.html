@@ -4,14 +4,13 @@
       {{ /if }}
 
       {{ posts }}
-        <article class="article-listing-item latest-article" style="background-image: url({{ glide:article_featured_image }});">
-          <a href="{{ url }}">
+        <article class="article-listing-item" style="background-image: url({{ glide:article_featured_image }});">
           <h2><span class="fa fa-tags"></span>{{ categories }}<a href="{{ url }}">{{ title }}</a>{{ if not last }}, {{ endif }}{{ /categories }}</h2>
           <div class="headline-wrapper mobile-wrapper">
             <h1><span class="header-span">{{ title }}</span></h1>
+            <a class="article-trigger" href="{{ url }}"></a>
           </div><!-- headline-wrapper mobile-wrapper -->
-          </a>
-        </article> <!-- article-listing-item latest-article -->
+        </article> <!-- article-listing-item -->
       {{ /posts }}
 
       {{ partial:pagination }}

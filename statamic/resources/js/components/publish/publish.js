@@ -213,10 +213,12 @@ module.exports = {
                 self.loading = false;
 
                 if (data.success) {
+                    this.$dispatch('changesMade', false);
                     window.location = data.redirect;
                 } else {
                     this.saving = false;
                     this.errors = data.errors;
+                    $('html, body').animate({ scrollTop: 0 });
                 }
             });
 
@@ -420,6 +422,14 @@ module.exports = {
         this.$on('fieldsetLoaded', function(fieldset) {
             this.fieldset = fieldset;
         });
+
+        // Add the watcher after a small delay.
+        // Give things enough time to stop initially modifying the data.
+        setTimeout(() => {
+            this.$watch('formData', function () {
+                this.$dispatch('changesMade', true);
+            }, { deep: true });
+        }, 1000);
 
         Mousetrap.bindGlobal('mod+s', function(e) {
             e.preventDefault();

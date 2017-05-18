@@ -83,7 +83,6 @@ class AssetContainersController extends CpController
         $config = $this->request->input($driver);
 
         $data = [
-            'driver' => $driver,
             'title' => $this->request->input('title'),
             'fieldset' => $this->request->input('fieldset'),
         ];
@@ -91,6 +90,8 @@ class AssetContainersController extends CpController
         $data = array_merge($config, $container->data(), $data);
 
         $container->data($data);
+
+        $container->driver($driver);
 
         $container->save();
 

@@ -2,13 +2,13 @@
 
 namespace Statamic\Assets;
 
-use Statamic\API\Asset;
 use Statamic\API\Folder;
 use Statamic\API\Str;
 use Statamic\API\Fieldset;
 use Statamic\API\File;
 use Statamic\API\YAML;
 use Statamic\API\Parse;
+use Statamic\API\Asset as AssetAPI;
 use Statamic\Events\Data\AssetContainerSaved;
 use Statamic\Events\Data\AssetContainerDeleted;
 use Statamic\Contracts\Assets\AssetContainer as AssetContainerContract;
@@ -360,7 +360,7 @@ class AssetContainer implements AssetContainerContract
      */
     public function createAsset($path)
     {
-        return Asset::create($path)->container($this->id)->get();
+        return AssetAPI::create($path)->container($this->id)->get();
     }
 
     /**
@@ -379,7 +379,7 @@ class AssetContainer implements AssetContainerContract
 
         $data = array_get($assets, $path, []);
 
-        return Asset::create($path)->container($this->id)->with($data)->get();
+        return AssetAPI::create($path)->container($this->id)->with($data)->get();
     }
 
     /**

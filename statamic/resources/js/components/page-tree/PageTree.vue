@@ -230,6 +230,12 @@ export default {
 
             $(this.$el).find('.page-tree > ul + ul').nestedSortable('destroy');
         }
+    },
+
+    watch: {
+        changed(changed) {
+            this.$dispatch('changesMade', changed);
+        }
     }
 
 };

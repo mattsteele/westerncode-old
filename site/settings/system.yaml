@@ -1,4 +1,4 @@
-license_key: ""
+license_key: 81acb1f2-877f-4f86-98f0-ce5b22022e3f
 locales:
   en:
     full: en_US
@@ -23,7 +23,7 @@ filesystems:
     url: /site/themes
 app_key: g3l3pqsWxnFbCSmZ8XobaPvCoppeytba
 redactor:
-  -
+  - 
     name: Standard
     settings:
       buttons:
@@ -34,7 +34,7 @@ redactor:
         - unorderedlist
         - orderedlist
         - html
-  -
+  - 
     name: Basic
     settings:
       buttons:

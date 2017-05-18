@@ -134,6 +134,7 @@ class Sender
         $text = '';
 
         foreach ($this->message->data() as $key => $value) {
+            $value = is_array($value) ? json_encode($value) : $value;
             $html .= "<strong>" . $key . "</strong>: " . $value . "<br><br>".PHP_EOL;
             $text .= $key . ": " . $value . PHP_EOL;
         }

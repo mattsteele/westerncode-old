@@ -32,7 +32,7 @@ class UsersService extends BaseService
     public function username($username)
     {
         return $this->all()->first(function ($id, $user) use ($username) {
-            return $user->username() === $username;
+            return strtolower($user->username()) === strtolower($username);
         });
     }
 
@@ -45,7 +45,7 @@ class UsersService extends BaseService
     public function email($email)
     {
         return $this->all()->first(function ($id, $user) use ($email) {
-            return $user->email() === $email;
+            return strtolower($user->email()) === strtolower($email);
         });
     }
 

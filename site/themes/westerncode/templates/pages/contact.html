@@ -11,7 +11,9 @@
 
 <div class="contact-two">
   <div class="content-wrapper mobile-wrapper">
-        {{ form:create in="contact" }}
+        {{ form:create formset="contact" redirect="/contact/thanks" }}
+
+
         <fieldset>
 
             {{ if errors }}

@@ -31,7 +31,7 @@
         background-position: 99% 0;
         background-size: 205% 100%;
         transition: all .25s ease-in-out;
-         @media only screen and (max-width: 865px) {
+         @media only screen and (max-width: 900px) {
             font-size: 22px;
             width: 100%;
          }
@@ -67,7 +67,7 @@
         background-position: 99% 0;
         background-size: 205% 100%;
         transition: all .25s ease-in-out;
-         @media only screen and (max-width: 865px) {
+         @media only screen and (max-width: 900px) {
             font-size: 22px;
             width: 100%;
          }
@@ -104,20 +104,31 @@
         background-position: 99% 0;
         background-size: 205% 100%;
         transition: all .25s ease-in-out;
-         @media only screen and (max-width: 865px) {
+         @media only screen and (max-width: 900px) {
             font-size: 22px;
             width: 100%;
+            background-color: none;
+            background-image: none;
+            background-color: white;
+            padding: 10px 4px;
          }
          &:hover{
             padding: 12px 25px;
             background-position: 0 0;
             cursor: pointer;
-            a{
-                color: white;
+            @media only screen and (max-width: 900px) {
+                padding: 10px 4px;
             }
          }
          a{
             color: white;
+            @media only screen and (max-width: 900px) {
+                color: #1E2E3E;
+                font-weight: 200;
+                &:hover{
+                    color: #1E2E3E;
+                }
+            }
          }
     }
 

@@ -1,27 +1,27 @@
 /*  TESTIMONIALS PAGE
 =================================================================== /// */
 
-.testimonial-wrapper{
-        margin: 0;
-        border-radius: 5px;
-        padding: 80px 0 60px 0;
-        @media only screen and (max-width: 825px) {
-            padding: 10px 0 30px 0;
-        }
-}
-
-// .testimonial-even{
-//     background: #DDE7ED;
-// }
-
-.testimonial-odd{
-    background: #EEEEEE;
-}
-
 .testimonial-header{
     text-align: center;
+    margin: 50px auto 10px auto;
     h2{
-        margin: 100px auto 50px auto;
+
+    }
+}
+
+.testimonial-wrapper{
+    margin: 0;
+    border-radius: 5px;
+    padding: 80px 0 60px 0;
+    @media only screen and (max-width: 700px) {
+        padding: 0 0 30px 0;
+    }
+}
+
+.testimonial-odd{
+    background: $grey-1;
+    @media only screen and (max-width: 700px) {
+        background: white;
     }
 }
 

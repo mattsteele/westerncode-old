@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }} | {{ site_name }}</title>
+    <title>{{ if !segment_1 }}Denver Web Development | {{ site_name }}{{ else }}{{ site_name }} | {{ title }}{{ endif }}</title>
 
     {{ partial:meta }}
 
@@ -28,7 +28,7 @@
 <header class="header">
 
     <div class="header-wrapper group">
-    <a class="logo-wrapper" href="/">
+    <a class="desktop-logo-wrapper" href="/">
         <img src="/site/themes/westerncode/dist/svg/blue-blue-horizontal.svg" alt="Western Code">
     </a>
 

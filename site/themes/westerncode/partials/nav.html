@@ -1,5 +1,12 @@
     <nav class="nav">
-        <p class="menu-link nav-toggle"><a></a></p>
+        <div class="mobile-header-wrapper">
+            <div class="nav-toggle"><a href="#"></a></div>
+            <div class="header-logo-mobile">
+            <a href="/">
+                <img src="/site/themes/westerncode/dist/svg/blue-blue-horizontal.svg" alt="Western Code Logo" width="160px" />
+            </a>
+            </div><!-- header-logo-mobile -->
+            </div><!-- mobile-header-wrapper -->
             <ul>
                 <li {{ if segment_1 == 'testimonials' || is_current }} class="current-nav"{{ /if }}><a href="/testimonials">Testimonials</a></li>
                 {{# <li {{ if segment_1 == 'styleguide' || is_current }} class="current-nav"{{ /if }}><a href="/styleguide">Styleguide</a></li> #}}

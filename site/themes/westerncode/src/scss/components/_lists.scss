@@ -5,11 +5,11 @@ ul{
         a{
             color: $blue-1;
         }
-        @media only screen and (max-width: 865px) {
+        @media only screen and (max-width: 900px) {
             font-size: 16px;
         }
     }
-    @media only screen and (max-width: 865px) {
+    @media only screen and (max-width: 900px) {
         padding-right: 25px;
     }
 }
@@ -22,7 +22,7 @@ ol{
         a{
             color: $blue-1;
         }
-        @media only screen and (max-width: 865px) {
+        @media only screen and (max-width: 900px) {
             font-size: 16px;
         }
     }
@@ -36,17 +36,26 @@ ol{
     margin-left: 70px;
     margin-top: 48px;
     margin-right: 40px;
-  @media only screen and (max-width: 825px) {
-        float: none;
-        width: auto;
-        padding: 20px 0;
+    @media only screen and (max-width: 470px) {
+      float: none;
+      text-align: center;
+      background-color: white;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      padding-top: 48px;
+      border-left: 15px solid $blue-2;
+      border-right: 2px solid $blue-2;
     }
 }
+
+
+
 
 .testimonial-words{
     background: white;
     width: 100%;
-    @media only screen and (max-width: 825px) {
+    @media only screen and (max-width: 700px) {
         float: none;
         width: auto;
     }
@@ -88,6 +97,10 @@ blockquote{
   -moz-box-shadow: 2px 2px 15px #ccc;
   -webkit-box-shadow: 2px 2px 15px #ccc;
   box-shadow: 2px 2px 15px #ccc;
+
+  @media only screen and (max-width: 470px) {
+    box-shadow: none;
+  }
 }
 
 

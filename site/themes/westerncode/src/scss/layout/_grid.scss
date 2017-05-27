@@ -5,6 +5,10 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
+  @media only screen and (max-width: 1065px) {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
 }
 
 .content-wrapper{
@@ -26,7 +30,7 @@
 }
 
 .mobile-wrapper{
-	@media only screen and (max-width: 865px) {
+	@media only screen and (max-width: 900px) {
 		padding-left: 2%;
 		padding-right: 2%;
 	}

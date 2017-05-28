@@ -8,6 +8,10 @@ routes:
   /register: auth/register
   /forgot-password: auth/password-forgot
   /reset-password: auth/password-reset
+  /feed:
+    content_type: atom
+    template: feed
+    title: RSS Feed
 collections:
   articles: '/articles/{slug}'
   things: '/testimonials/{slug}'

@@ -1,0 +1,35 @@
+<rss version="2.0">
+   <channel>
+      {{ get_content from="/articles" }}
+      <title><![CDATA[{{ display_title }}]]></title>
+      <link>{{ site_url }}</link>
+      <description>{{ seo_description }}</description>
+      {{ /get_content }}
+      <lastBuildDate>{{ collection:articles limit="1" }}{{ datestamp format="r" }}{{ /collection:articles }}</lastBuildDate>
+      <language>en-us</language>
+      <webMaster>{{ email }}</webMaster>
+      <copyright>Copyright {{ current_date format='Y' }}</copyright>
+      <ttl>3600</ttl>
+
+      {{ collection:articles limit="1000"}}
+         <item>
+         <title><![CDATA[{{ title }}]]></title>
+         <author>
+           {{ if author }}
+             {{ relate:author }}{{ first_name }} {{ last_name }}{{/relate:author}}
+           {{ else }}
+             {{external_author:name}}
+           {{ /if }}
+         </author>
+         <link>{{ permalink }}</link>
+         <guid>{{ permalink }}</guid>
+         <category>
+           {{ relate:tags }}
+           {{ title }}{{ if !last }}, {{ /if }}
+           {{ /relate:tags }}</category>
+         <pubDate>{{ datestamp format="r" }}</pubDate>
+         <description><![CDATA[{{ content }}]]></description>
+         </item>
+      {{ /collection:articles }}
+   </channel>
+</rss>

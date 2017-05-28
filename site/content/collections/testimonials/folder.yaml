@@ -1,6 +1,3 @@
 title: Testimonials
 fieldset: testimonials
 template: testimonials/post
-columns:
-  - title
-  - slug

@@ -1,6 +1,6 @@
     <div class="page-title-header">
       <div class="content-wrapper mobile-wrapper">
-        <h2>Styleguide.</h2>
+        <h2>Styleguide</h2>
       </div> <!-- content-wrapper mobile-wrapper -->
     </div><!-- page-title-header -->
 
@@ -62,7 +62,7 @@
 <div class="content-wrapper mobile-wrapper">
     <hr />
     <h2>Paragraphs</h2>
-        <p>This is a standard paragraph - {{ FONT NAME }} 18px font - body copy is #{{ FONT COLOR }} - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, <a href="<?php echo $site_url; ?>index.php">Body links are naturally #{{ FONT COLOR }} and rollover to #{{ FONT COLOR }}</a> aut, nostrum similique animi voluptate qui perferendis natus ipsa quis tempora iusto explicabo illum accusamus repudiandae enim reprehenderit ratione. Consequatur, <a href="<?php echo $site_url; ?>index.php">Body links are naturally #{{ FONT COLOR }} and rollover to #{{ FONT COLOR }}</a> consequuntur quidem aperiam rerum voluptatibus enim eius molestiae veritatis culpa. Non, nisi maiores suscipit distinctio magni aspernatur a maxime mollitia!</p>
+        <p>This is a standard paragraph - Trebuchet MS 18px font - body copy is #363636 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, <a href="/">Body links are naturally underlined and rollover to 2px dashed #E25E54</a> aut, nostrum similique animi voluptate qui perferendis natus ipsa quis tempora iusto explicabo illum accusamus repudiandae enim reprehenderit ratione. Consequatur, <a href="/">Body links are naturally underlined and rollover to 2px dashed #E25E54</a> consequuntur quidem aperiam rerum voluptatibus enim eius molestiae veritatis culpa. Non, nisi maiores suscipit distinctio magni aspernatur a maxime mollitia!</p>
 </div> <!-- content-wrapper mobile-wrapper -->
 
 
@@ -76,6 +76,8 @@
 
     <p>Button Element</p>
         <button type="submit" class="button">Submit Form</button>
+        <br />
+        <br />
 </div> <!-- content-wrapper mobile-wrapper -->
 
 
@@ -115,15 +117,14 @@
     <hr />
     <h2>Pagination</h2>
 
-        <nav class="pagination left">
-            <a class="prev" href="#">Prev</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a class="active" href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">7</a>
-            <a class="next" href="#">Next</a>
-        </nav>
+    <ul class="pagination">
+        <li class="disabled"><span>«</span></li>
+        <li class="active"><span>1</span></li>
+        <li><a href="/articles?page=2">2</a></li>
+        <li><a href="/articles?page=3">3</a></li>
+        <li><a href="/articles?page=2" rel="next">»</a></li>
+    </ul>
+    <br />
+    <br />
+    <br />
 </div> <!-- content-wrapper mobile-wrapper group -->

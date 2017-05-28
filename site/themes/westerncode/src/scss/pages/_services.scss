@@ -1,9 +1,15 @@
 /*  SERVICES STYLES
 =================================================================== /// */
 
-.services-two{
+.services-one{
     padding-top: 100px;
     padding-bottom: 100px;
+    @media only screen and (max-width: 1065px) {
+        padding-left: 4%;
+        padding-right: 4%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
 }
 
 

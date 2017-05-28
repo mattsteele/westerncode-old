@@ -118,6 +118,9 @@
             cursor: pointer;
             @media only screen and (max-width: 900px) {
                 padding: 10px 4px;
+                a{
+                    color: $red-1;
+                }
             }
          }
          a{
@@ -126,7 +129,7 @@
                 color: #1E2E3E;
                 font-weight: 200;
                 &:hover{
-                    color: #1E2E3E;
+                    color: $red-1;
                 }
             }
          }

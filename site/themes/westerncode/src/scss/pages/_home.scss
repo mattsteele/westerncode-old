@@ -77,6 +77,12 @@
     h2{
         padding-bottom: 30px;
     }
+    .mobile-wrapper{
+        @media only screen and (max-width: 1080px) {
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+    }
 }
 
 .home-four{

@@ -7,6 +7,17 @@
   margin-bottom: 100px;
 }
 
+.article-listing-title{
+  padding-top: 35vh;
+  a{
+    text-decoration: none;
+    transition: all 0.5s ease;
+    transition-delay: 0.1s;
+    &:hover{
+      color: $red-1;
+    }
+  }
+}
 
 .article-listing-item{
       position: relative;
@@ -23,10 +34,9 @@
           font-family: $font-sans-serif;
           color: $blue-1;
           margin-top: 0;
-          padding-top: 35vh;
+          margin-bottom: 0;
           text-transform: uppercase;
-          max-width: 80%;
-          .header-span{
+          span{
               background: rgba(255,255,255,.6);
               padding: 3.5px 10px;
               @media only screen and (max-width: 900px) {
@@ -38,14 +48,6 @@
               padding-top: 16vh;
               padding-bottom: 4vh;
               max-width: 100%;
-          }
-          a{
-            text-decoration: none;
-            transition: all 0.5s ease;
-            transition-delay: 0.1s;
-            &:hover{
-              color: $red-1;
-            }
           }
       }
     h2{
@@ -92,7 +94,7 @@
     right: 0;
     &:hover{
       cursor: pointer;
-      ~ h1 a{
+      ~ .article-listing-title h1{
         color: $red-1;
       }
     }

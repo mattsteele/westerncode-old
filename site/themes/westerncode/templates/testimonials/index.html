@@ -11,12 +11,12 @@
 		<div class="content-wrapper mobile-wrapper group">
 
 		<div class="testimonial-photo">
-			<img src="{{ glide src="{testimonial_image}" width="150" height="150" fit="crop" }}" alt="" />
+			<img src="{{ glide src="{testimonial_image}" width="150" height="150" fit="crop" }}" alt="{{ title }}" />
 		</div> <!-- testimonial-photo -->
 
 		<div class="testimonial-words">
 			<blockquote>
-				<p><span itemprop="author">&ldquo;{{ testimonial_text }}&rdquo;</span></p>
+				<p><span itemprop="author">{{ testimonial_text | markdown }}</span></p>
 				<cite>&#8212; {{ testimonial_citation }}</cite>
 			</blockquote>
 		</div> <!-- testimonial-words -->

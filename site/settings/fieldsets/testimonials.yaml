@@ -1,16 +1,19 @@
 title: Testimonials
 create_title: Add New Testimonial
 hide: true
-taxonomies:
-  tags: true
+taxonomies: false
 fields:
   title:
     type: title
     display: Title
     localizable: true
   testimonial_text:
-    type: textarea
+    type: markdown
     display: Testimonial Text
+    cheatsheet: true
+    container: testimonial_images
+    folder: /
+    restrict_assets: true
   testimonial_image:
     type: assets
     display: Testimonial Image

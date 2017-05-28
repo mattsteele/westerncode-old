@@ -1,0 +1,7 @@
+taxonomies:
+  categories: true
+title: Image Meta Info
+fields:
+  alt_text:
+    type: text
+    display: Alt Text

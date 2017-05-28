@@ -16,7 +16,7 @@
 }
 
 .about-two{
-    margin: 0 auto 50px auto;
+    margin: 0 auto;
     h2{
         text-align: center;
     }
@@ -33,6 +33,9 @@
         @media only screen and (max-width: 900px) {
             font-size: 20px;
         }
+    }
+    ul{
+        margin-bottom: 0;
     }
 }
 
@@ -69,7 +72,7 @@
 }
 
 .about-three{
-    margin: 50px auto;
+    margin: 100px auto;
     max-width: 840px;
     @media only screen and (max-width: 700px) {
         margin: 0 auto;

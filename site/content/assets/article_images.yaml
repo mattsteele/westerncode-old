@@ -1,4 +1,21 @@
 path: assets/img/article-images/
 url: /assets/img/article-images/
 title: Article Images
-fieldset: post
+fieldset: images
+assets:
+  campfireman-1024x500.jpg:
+    alt_text: Man Starting a Campfire
+  carousel-1024x500.jpg:
+    alt_text: Woman On a Carousel
+  girl-phone-1024x500.jpg:
+    alt_text: Woman Using a Phone
+  laptop-whiteboard-1024x500.jpg:
+    alt_text: Laptop On a Desk
+  post-its-1024x500.jpg:
+    alt_text: Post-it Notes On a Desk
+  woman-forest-1024x500.jpg:
+    alt_text: Woman Standing In a Forest
+  woman-laptop-1024x500.jpg:
+    alt_text: Woman Using a Laptop
+  womancellphone-1024x500.jpg:
+    alt_text: Woman Dialing a Phone

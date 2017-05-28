@@ -165,14 +165,15 @@ hr{
     .media-even-one{
         float: right;
         width: 60%;
-        padding-right:5%;
         img{
             width: 100%;
             height: auto;
             max-width: 570px;
             max-height: 400px;
+            float: right;
             @media only screen and (max-width: 900px) {
                 max-width: none;
+                float: none;
             }
         }
         @media only screen and (max-width: 900px) {
@@ -183,7 +184,6 @@ hr{
     .media-even-two-desktop{
         float: left;
         width: 40%;
-        padding-right: 5%;
         @media only screen and (max-width: 900px) {
             display: none;
         }
@@ -312,7 +312,7 @@ hr{
         max-width: 308px;
         margin-top: 10px;
         display: block;
-        margin-right: 2%;
+        margin-right: 4.8%;
         text-align: center;
         h2{
             text-align: center;
@@ -333,11 +333,6 @@ hr{
                 margin-right: auto;
             }
         }
-        @media only screen and (max-width: 740px) {
-            width: auto;
-            float: none;
-            margin: 0 auto;
-        }
         svg{
             margin: 0 auto;
             width: 100px;
@@ -348,6 +343,9 @@ hr{
             line-height: 29px;
             font-size: 18px;
             margin-bottom: 0;
+        }
+        @media only screen and (max-width: 1080px) {
+            margin-right: 2%;
         }
         @media only screen and (max-width: 740px) {
             float: none;

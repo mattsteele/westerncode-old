@@ -1,3 +1,15 @@
 path: assets/img/testimonial-images/
 url: /assets/img/testimonial-images/
 title: Testimonial Images
+fieldset: images
+assets:
+  craigfreeman-150x150.jpg:
+    alt_text: Craig Freeman
+  haleygoldstein-150x150.png:
+    alt_text: Haley Goldstein
+  jeremysanchez-150x150.jpg:
+    alt_text: Jeremy Sanchez
+  jonlambert-150x150.jpg:
+    alt_text: Jon Lambert
+  natalieclark-150x150.jpg:
+    alt_text: Natalie Clark

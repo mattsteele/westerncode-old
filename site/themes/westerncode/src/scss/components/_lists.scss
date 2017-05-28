@@ -50,8 +50,6 @@ ol{
 }
 
 
-
-
 .testimonial-words{
     background: white;
     width: 100%;
@@ -133,7 +131,7 @@ blockquote a{
 }
 
 blockquote a:hover{
- color: #666;
+ color: $red-1;
 }
 
 blockquote em{
@@ -142,4 +140,10 @@ blockquote em{
 
 blockquote cite{
   float: right;
+  text-align: right;
+  color: $blue-1;
+  a{
+    display: inline-block;
+    margin-top: 10px;
+  }
 }

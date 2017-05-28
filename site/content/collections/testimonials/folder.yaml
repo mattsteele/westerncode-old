@@ -1,3 +1,4 @@
+order: date
 title: Testimonials
 fieldset: testimonials
 template: testimonials/post

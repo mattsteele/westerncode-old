@@ -7,6 +7,11 @@ fields:
     type: title
     display: Title
     localizable: true
+  appearance_title:
+    type: markdown
+    display: Appearance Title
+    instructions: How the title should appear
+    cheatsheet: true
   author:
     type: users
     display: Author

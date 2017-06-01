@@ -1,4 +1,5 @@
 title: Contact
+honeypot: username
 fields:
   name:
     display: Name
@@ -17,15 +18,12 @@ columns:
   - email
   - comment
 metrics:
-  - 
+  -
     type: total
     label: Total Responses
-  - 
-    type: sum
-    label: Sum of Favorite Number
-    field: number
-  - 
-    type: average
-    label: Average Favorite Number
-    field: number
-    precision: 1
+email:
+  -
+    to: matt@westerncode.com
+    subject: New Contact Submission
+    from: matt@westerncode.com
+    reply_to: "{{ email }}"

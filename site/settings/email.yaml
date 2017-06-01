@@ -1,8 +1,8 @@
-driver: smtp
+driver: mail
 from_email: matt@westerncode.com
 from_name: Matt Steele
-host: smtp.gmail.com
-port: 2525
+host: ""
+port: "2525"
 encryption: tls
-username: matt@westerncode.com
-password: matt38824
+username: ""
+password: ""

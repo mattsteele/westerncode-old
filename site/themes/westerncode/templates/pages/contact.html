@@ -26,23 +26,25 @@
                     Form was submitted successfully.
                 </div>
             {{ /if }}
+
+            <input type="hidden" name="username" />
             <div class="form-group">
                 <label for="name">What's Your Name? <span>(required)</span></label>
-                <input type="text" name="name" value="{{ old:name }}" class="form-control" aria-describedby="nameHelp" placeholder="Jane Doe"/>
+                <input type="text" name="name" class="form-control" placeholder="Jane Doe"/>
             </div>
           <div class="form-group">
             <label for="title">What Do You Do? <span>(required)</span></label>
-            <input type="title" class="form-control" id="title" aria-describedby="occupationHelp" placeholder="Business Owner">
+            <input type="text" name="title" class="form-control" placeholder="Business Owner">
           </div><!-- form-group -->
             <div class="form-group">
                 <label for="email">What's Your Email? <span>(required)</span></label>
-                <input type="text" name="email" value="{{ old:email }}" class="form-control" aria-describedby="emailHelp" placeholder="email@example.com" />
+                <input type="text" name="email" class="form-control" placeholder="email@example.com" />
             </div>
             <div class="form-group">
                 <label>Comment</label>
-                <textarea name="comment" class="form-control" rows="6" placeholder="...">{{ old:comment }}</textarea>
+                <textarea name="comment" class="form-control" rows="6" placeholder="..."></textarea>
             </div>
-            <button class="button">Send Message</button>
+            <button type="submit" class="button">Send Message</button>
         </fieldset>
         {{ /form:create }}
     </div> <!-- content-wrapper mobile-wrapper -->

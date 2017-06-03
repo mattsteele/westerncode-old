@@ -44,7 +44,9 @@
 }
 
 .home-two{
-    padding-top: 80px;
+    padding-top: 60px;
+    max-width: 720px;
+    margin: 0 auto;
     h2{
         padding-bottom: 80px;
     }
@@ -62,14 +64,16 @@
         }
         cite{
             text-align: center;
-            display: inline-block;
+            float: none;
+            a{
+                margin-top: 5px;
+            }
         }
     }
     @media only screen and (max-width: 900px) {
         padding-top: 20px;
     }
 }
-
 
 
 .home-three{

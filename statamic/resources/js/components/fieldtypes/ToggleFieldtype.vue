@@ -10,7 +10,15 @@
 
 <script>
 module.exports = {
-    props: ['name', 'data', 'config'],
+
+    mixins: [Fieldtype],
+
+    data() {
+        return {
+            autoBindChangeWatcher: false
+        };
+    },
+
     computed: {
         isOn: function () {
             let match = true;
@@ -33,6 +41,8 @@ module.exports = {
         if (this.data === null) {
             this.data = false;
         }
+
+        this.bindChangeWatcher();
     }
 };
 </script>

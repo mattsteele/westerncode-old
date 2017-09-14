@@ -29,12 +29,13 @@
 <script>
 module.exports = {
 
-    props: ['name', 'data', 'config'],
+    mixins: [Fieldtype],
 
     data: function () {
         return {
             newItem: '',
-            editing: null
+            editing: null,
+            autoBindChangeWatcher: false
         }
     },
 
@@ -112,6 +113,8 @@ module.exports = {
         if ( ! this.data) {
             this.data = [];
         }
+
+        this.bindChangeWatcher();
 
         $(this.$el).sortable({
             axis: "y",

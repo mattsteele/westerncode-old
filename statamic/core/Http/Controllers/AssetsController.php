@@ -13,16 +13,12 @@ use Statamic\API\Helper;
 use Statamic\API\Path;
 use Statamic\API\Stache;
 use Statamic\API\Str;
+use Illuminate\Http\Request;
 use Statamic\Assets\AssetCollection;
-use Statamic\Imaging\ImageGenerator;
-use Statamic\Imaging\ThumbnailUrlBuilder;
-use Statamic\Contracts\Imaging\UrlBuilder;
 use Statamic\Presenters\PaginationPresenter;
 
 class AssetsController extends CpController
 {
-    private static $thumb_builder;
-
     /**
      * The main assets routes, which redirects to the browse the first container.
      *
@@ -60,6 +56,9 @@ class AssetsController extends CpController
      */
     public function json()
     {
+        // Crank it up because generating the images will take some power.
+        app()->toEleven();
+
         // Get the path from the request, and normalize it.
         $path = $this->request->path;
         $path = ($path === '') ? '/' : $path;
@@ -78,17 +77,7 @@ class AssetsController extends CpController
         $assets = $assets->slice($offset, $perPage);
         $paginator = new LengthAwarePaginator($assets, $totalAssetCount, $perPage, $currentPage);
 
-        foreach ($assets as &$asset) {
-            // Add thumbnails to all image assets.
-            if ($asset->isImage()) {
-                $asset->set('thumbnail', $this->thumbnail($asset, 'small'));
-                $asset->set('toenail', $this->thumbnail($asset, 'large'));
-            }
-
-            // Set some values for better listing formatting.
-            $asset->set('size_formatted', Str::fileSizeForHumans($asset->size(), 0));
-            $asset->set('last_modified_formatted', $asset->lastModified()->format(Config::get('cp.date_format')));
-        }
+        $assets = $this->supplementAssetsForDisplay($assets);
 
         // Get data about the subfolders in the requested asset folder.
         $folders = [];
@@ -115,6 +104,42 @@ class AssetsController extends CpController
                 'segments'      => array_get($paginator->render(new PaginationPresenter($paginator)), 'segments')
             ]
         ];
+    }
+
+    public function search(Request $request)
+    {
+        $term = $request->term;
+
+        $assets = ($request->restrictNavigation)
+            ? AssetContainer::find($request->container)->assetFolder($request->folder)->assets()
+            : Asset::all();
+
+        $assets = $assets->filterWithKey(function ($asset, $path) use ($term) {
+            return str_contains(mb_strtolower($path), mb_strtolower($term));
+        });
+
+        $assets = $this->supplementAssetsForDisplay($assets);
+
+        return [
+            'assets' => $assets->toArray()
+        ];
+    }
+
+    private function supplementAssetsForDisplay($assets)
+    {
+        foreach ($assets as &$asset) {
+            // Add thumbnails to all image assets.
+            if ($asset->isImage()) {
+                $asset->set('thumbnail', $this->thumbnail($asset, 'small'));
+                $asset->set('toenail', $this->thumbnail($asset, 'large'));
+            }
+
+            // Set some values for better listing formatting.
+            $asset->set('size_formatted', Str::fileSizeForHumans($asset->size(), 0));
+            $asset->set('last_modified_formatted', $asset->lastModified()->format(Config::get('cp.date_format')));
+        }
+
+        return $assets;
     }
 
     /**
@@ -144,6 +169,9 @@ class AssetsController extends CpController
 
     public function store()
     {
+        // Crank it up because generating an image may take some power.
+        app()->toEleven();
+
         if (! $this->request->hasFile('file')) {
             return response()->json($this->request->file('file')->getErrorMessage(), 400);
         }
@@ -272,22 +300,10 @@ class AssetsController extends CpController
 
     private function thumbnail($asset, $preset = null)
     {
-        $params = ($preset) ? ['p' => "cp_thumbnail_$preset"] : [];
-
-        return $this->thumbnailBuilder()->build($asset, $params);
-    }
-
-    private function thumbnailBuilder()
-    {
-        if (self::$thumb_builder) {
-            return self::$thumb_builder;
-        }
-
-        self::$thumb_builder = (Config::get('assets.image_manipulation_cached'))
-            ? app(UrlBuilder::class)
-            : new ThumbnailUrlBuilder(app(ImageGenerator::class));
-
-        return self::$thumb_builder;
+        return route('asset.thumbnail', [
+            'asset' => base64_encode($asset->id()),
+            'size' => $preset
+        ]);
     }
 
     public function replaceEditedImage()
@@ -351,7 +367,7 @@ class AssetsController extends CpController
     public function rename($container_id, $path)
     {
         $this->validate($this->request, [
-            'filename' => 'required|alpha_dash'
+            'filename' => 'required|alpha_dash|unique_asset_filename:'.$container_id.','.$path
         ]);
 
         $container = AssetContainer::find($container_id);
@@ -371,9 +387,12 @@ class AssetsController extends CpController
     private function supplementAssetForEditing($asset)
     {
         if ($asset->isImage()) {
-            $asset->setSupplement('preview', $this->thumbnail($asset));
             $asset->setSupplement('width', $asset->width());
             $asset->setSupplement('height', $asset->height());
+
+            // Public asset containers can use their regular URLs.
+            // Private ones don't have URLs so we'll generate an actual-size "thumbnail".
+            $asset->setSupplement('preview', $asset->container()->url() ? $asset->absoluteUrl() : $this->thumbnail($asset));
         }
 
         $asset->setSupplement('last_modified_relative', $asset->lastModified()->diffForHumans());

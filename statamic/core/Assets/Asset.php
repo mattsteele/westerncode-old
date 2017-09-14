@@ -3,6 +3,7 @@
 namespace Statamic\Assets;
 
 use Carbon\Carbon;
+use Stringy\Stringy;
 use Statamic\API\Str;
 use Statamic\API\URL;
 use Statamic\API\File;
@@ -446,6 +447,7 @@ class Asset extends Data implements AssetContract
                 'last_modified'  => (string) $this->lastModified(),
                 'last_modified_timestamp' => $this->lastModified()->timestamp,
                 'last_modified_instance'  => $this->lastModified(),
+                'focus_css' => \Statamic\View\Modify::value($this->get('focus'))->backgroundPosition()->fetch(),
             ]);
         }
 
@@ -471,9 +473,9 @@ class Asset extends Data implements AssetContract
      */
     public function upload(UploadedFile $file)
     {
-        $basename  = $file->getClientOriginalName();
-        $filename  = pathinfo($basename)['filename'];
         $ext       = $file->getClientOriginalExtension();
+        $filename  = $this->getSafeFilename(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
+        $basename  = $filename . '.' . $ext;
 
         $directory = $this->folder();
         $directory = ($directory === '.') ? '/' : $directory;
@@ -493,6 +495,11 @@ class Asset extends Data implements AssetContract
 
         // Legacy/Deprecated. @todo: Remove in 2.3
         event('asset.uploaded', $path);
+    }
+
+    private function getSafeFilename($string)
+    {
+        return (string) Stringy::create($string)->toAscii()->replace(' ', '-');
     }
 
     /**

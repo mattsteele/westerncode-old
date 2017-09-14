@@ -329,8 +329,9 @@ hr{
         }
         &:last-of-type{
             margin-right: 0;
+            margin-top: 0;
             @media only screen and (max-width: 740px) {
-                margin-right: auto;
+                margin: 80px auto 40px auto;
             }
         }
         svg{

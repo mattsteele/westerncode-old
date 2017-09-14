@@ -59,10 +59,12 @@ module.exports = {
             contentData: null,
             taxonomies: null,
             formData: { extra: {}, fields: {} },
+            formDataInitialized: false,
             isSlugModified: false,
             iframeLoading: false,
             previewRequestQueued: false,
-            errors: []
+            errors: [],
+            continuing: false
         };
     },
 
@@ -101,6 +103,8 @@ module.exports = {
         },
 
         shouldShowMeta: function() {
+            if (! this.formDataInitialized) return false;
+
             if (this.isUser && this.shouldShowTaxonomies) {
                 return true;
             }
@@ -191,6 +195,8 @@ module.exports = {
                 extra: this.extra,
                 fields: this.contentData
             };
+
+            this.formDataInitialized = true;
         },
 
         publish: function() {
@@ -214,8 +220,17 @@ module.exports = {
 
                 if (data.success) {
                     this.$dispatch('changesMade', false);
-                    window.location = data.redirect;
+                    if (! this.formData.continue || this.isNew) {
+                        window.location = data.redirect;
+                        return;
+                    }
+                    this.continuing = true;
+                    this.formData.continue = null;
+                    this.saving = false;
+                    this.title = this.formData.fields.title;
+                    this.$dispatch('setFlashSuccess', data.message, 1000);
                 } else {
+                    this.$dispatch('setFlashError', translate('cp.error'));
                     this.saving = false;
                     this.errors = data.errors;
                     $('html, body').animate({ scrollTop: 0 });
@@ -227,8 +242,17 @@ module.exports = {
             });
         },
 
+        publishWithoutContinuing: function () {
+            localStorage.setItem('statamic.publish.continue', false);
+
+            this.publish();
+        },
+
         publishAndContinue: function() {
+            this.continuing = true;
             this.formData.continue = true;
+            localStorage.setItem('statamic.publish.continue', true);
+
             this.publish();
         },
 
@@ -380,6 +404,10 @@ module.exports = {
             this.isSlugModified = (this.$slugify(title) !== slug);
         },
 
+        getInitialContinue: function () {
+            return localStorage.getItem('statamic.publish.continue') === 'true';
+        }
+
     },
 
     ready: function() {
@@ -395,6 +423,8 @@ module.exports = {
         if (this.locales) {
             this.locales = JSON.parse(this.locales);
         }
+
+        this.continuing = this.getInitialContinue();
 
         this.initFormData();
 
@@ -422,14 +452,6 @@ module.exports = {
         this.$on('fieldsetLoaded', function(fieldset) {
             this.fieldset = fieldset;
         });
-
-        // Add the watcher after a small delay.
-        // Give things enough time to stop initially modifying the data.
-        setTimeout(() => {
-            this.$watch('formData', function () {
-                this.$dispatch('changesMade', true);
-            }, { deep: true });
-        }, 1000);
 
         Mousetrap.bindGlobal('mod+s', function(e) {
             e.preventDefault();

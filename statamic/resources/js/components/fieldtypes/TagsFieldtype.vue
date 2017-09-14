@@ -7,7 +7,7 @@
 <script>
 module.exports = {
 
-    props: ['data', 'config', 'name'],
+    mixins: [Fieldtype],
 
     ready: function () {
         var self = this;

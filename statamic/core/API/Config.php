@@ -112,6 +112,19 @@ class Config
     }
 
     /**
+     * Get the current locale's short code
+     *
+     * @param string|null $locale
+     * @return string
+     */
+    public static function getShortLocale($locale = null)
+    {
+        $full = str_replace('_', '-', self::getFullLocale($locale));
+
+        return explode('-', $full)[0];
+    }
+
+    /**
      * Get the current locale's name
      *
      * @param string|null $locale
@@ -201,13 +214,6 @@ class Config
      */
     public static function getImageManipulationPresets()
     {
-        $user_presets = self::get('assets.image_manipulation_presets', []);
-
-        // If the CP is disabled, we don't need to bother merging in our presets.
-        if (! CP_ROUTE) {
-            return $user_presets;
-        }
-
-        return array_merge($user_presets, Image::getCpImageManipulationPresets());
+        return self::get('assets.image_manipulation_presets', []);
     }
 }

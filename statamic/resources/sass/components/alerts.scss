@@ -8,13 +8,25 @@
 	background: $brand-primary;
 }
 
-.flashdance .alert {
-	@extend .z-depth-1;
-	border-radius: 0;
-	margin-bottom: 15px;
-	padding-left: 30px;
-	padding-right: 45px;
-	position: relative;
+.flashdance {
+	position: fixed;
+	z-index: 110;
+	top: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	pointer-events: none;
+
+	.alert {
+		display: inline-block;
+		padding: 8px 30px 8px 15px;
+		border-radius: 0 0 3px 3px;
+		pointer-events: auto;
+
+		.close {
+			top: 0;
+		}
+	}
 }
 
 .alert-dismissible:focus,

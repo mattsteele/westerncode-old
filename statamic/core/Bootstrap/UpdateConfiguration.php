@@ -149,6 +149,10 @@ class UpdateConfiguration
         $addon_config = [];
 
         foreach ([bundles_path(), addons_path()] as $addon_folder) {
+            if (! $this->filesystem->exists($addon_folder)) {
+                continue;
+            }
+
             foreach ($this->filesystem->directories($addon_folder) as $addon) {
                 $default = $config = [];
 
@@ -227,9 +231,6 @@ class UpdateConfiguration
             'services.mandrill.secret' => ConfigAPI::get('email.mandrill_secret'),
             'services.mailgun.secret' => ConfigAPI::get('email.mailgun_secret'),
             'services.mailgun.domain' => ConfigAPI::get('email.mailgun_domain'),
-
-            'search.connections.algolia.config.application_id' => ConfigAPI::get('search.algolia_app_id'),
-            'search.connections.algolia.config.admin_api_key' => ConfigAPI::get('search.algolia_api_key'),
         ]);
     }
 

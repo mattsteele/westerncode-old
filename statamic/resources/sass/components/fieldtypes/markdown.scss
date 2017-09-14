@@ -261,3 +261,10 @@
         max-width: 100%;
     }
 }
+
+// Sneak Peek
+.sneak-peeking .markdown-fieldtype {
+    .markdown-toolbar { padding: 8px 4px; }
+    .CodeMirror { font-size: 13px; }
+    .markdown-preview { padding: 10px; }
+}

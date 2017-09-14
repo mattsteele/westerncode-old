@@ -15,8 +15,6 @@ abstract class Controller extends BaseController
 {
     use DispatchesJobs, ValidatesRequests, AuthorizesRequests;
 
-    private $request;
-
     protected function access($area)
     {
         if (! User::getCurrent()->can($area)) {
@@ -24,22 +22,46 @@ abstract class Controller extends BaseController
         }
     }
 
+    /**
+     * 404
+     */
+    public function pageNotFound()
+    {
+        abort(404);
+    }
+
+    /**
+     * Set the successful flash message
+     *
+     * @param string $message
+     * @param null   $text
+     * @return array
+     */
+    protected function success($message, $text = null)
+    {
+        session()->flash('success', $message);
+
+        if ($text) {
+            session()->flash('success_text', $text);
+        }
+    }
+
     protected function loadKeyVars()
     {
         $now = Carbon::now();
+        $request = request();
 
-        $this->request = request();
-
-        $get = sanitize_array($this->request->query->all());
-        $post = ($this->request->isMethod('post')) ? sanitize_array($this->request->request->all()) : [];
-        $get_post = sanitize_array($this->request->all());
+        $get = sanitize_array($request->query->all());
+        $post = ($request->isMethod('post')) ? sanitize_array($request->request->all()) : [];
+        $get_post = sanitize_array($request->all());
+        $old = sanitize_array(old());
 
         datastore()->merge(array_merge(
             [
                 'site_url'     => Config::getSiteUrl(),
                 'homepage'     => Config::getSiteUrl(),
-                'current_url'  => $this->request->url(),
-                'current_uri'  => format_url($this->request->path()),
+                'current_url'  => $request->url(),
+                'current_uri'  => format_url($request->path()),
                 'current_date' => $now,
                 'now'          => $now,
                 'today'        => $now,
@@ -47,6 +69,7 @@ abstract class Controller extends BaseController
                 'get'          => $get,
                 'post'         => $post,
                 'get_post'     => $get_post,
+                'old'          => $old,
                 'response_code' => 200,
                 'logged_in'    => \Auth::check(),
                 'logged_out'   => !\Auth::check(),
@@ -64,7 +87,7 @@ abstract class Controller extends BaseController
     {
         $data = [];
 
-        $segments = $this->request->segments();
+        $segments = request()->segments();
 
         foreach ($segments as $key => $value) {
             $data['segment_' . ($key + 1)] = $value;

@@ -32,6 +32,8 @@
 
 module.exports = {
 
+    mixins: [Fieldtype],
+
     props: {
         name: String,
         data: {},
@@ -41,7 +43,8 @@ module.exports = {
     data: function() {
         return {
             calendar: null,
-            time: null
+            time: null,
+            autoBindChangeWatcher: false
         }
     },
 
@@ -173,6 +176,7 @@ module.exports = {
 
         this.watchTime();
         this.bindCalendar();
+        this.bindChangeWatcher();
     }
 };
 </script>

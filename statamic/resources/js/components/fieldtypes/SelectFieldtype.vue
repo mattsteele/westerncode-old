@@ -10,7 +10,9 @@
 
 module.exports = {
 
-    props: ['name', 'data', 'config', 'options'],
+    mixins: [Fieldtype],
+
+    props: ['options'],
 
     data: function() {
         return {

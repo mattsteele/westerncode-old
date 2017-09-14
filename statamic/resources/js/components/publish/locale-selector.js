@@ -4,12 +4,6 @@ module.exports = {
 
     props: ['locales'],
 
-    data: function() {
-        return {
-            ready: false
-        };
-    },
-
     computed: {
 
         activeLocale: function() {
@@ -32,11 +26,6 @@ module.exports = {
             }
         }
 
-    },
-
-    ready: function() {
-        this.locales = JSON.parse(this.locales);
-        this.ready = true;
     }
 
 };

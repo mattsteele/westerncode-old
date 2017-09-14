@@ -19,7 +19,7 @@ module.exports = {
         selector: require('../../assets/Selector.vue')
     },
 
-    props: ['data', 'name', 'config'],
+    mixins: [Fieldtype],
 
     data: function() {
         return {

@@ -48,7 +48,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1002;
+    z-index: 1000;
     padding: 8px 15px;
     h2 {
         margin: 8px 0;
@@ -122,13 +122,17 @@
 
     .publish-fields .form-group {
         flex-basis: 100%;
+        max-width: 100%;
 
         &.width-100,
         &.width-75,
         &.width-66,
         &.width-50,
         &.width-33,
-        &.width-25 { flex-basis: 100%; }
+        &.width-25 {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
     }
 
     .sneak-peek-viewport {

@@ -16,3 +16,9 @@ fields:
     type: text
   image_manipulation_presets:
     type: yaml
+  thumbnail_max_width:
+    type: integer
+    width: 50
+  thumbnail_max_height:
+    type: integer
+    width: 50

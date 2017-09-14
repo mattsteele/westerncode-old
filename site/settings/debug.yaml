@@ -1,5 +1,5 @@
-debug: true
-debug_bar: true
+debug: false
+debug_bar: false
 loggers:
   file:
     daily: true

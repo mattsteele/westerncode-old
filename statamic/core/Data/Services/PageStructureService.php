@@ -41,7 +41,7 @@ class PageStructureService extends BaseService
         $exclude = Helper::ensureArray($exclude);
 
         // No depth asked for
-        if ($depth == 0) {
+        if ($depth === 0) {
             return [];
         }
 

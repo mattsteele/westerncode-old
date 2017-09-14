@@ -23,11 +23,20 @@
             @media only screen and (max-width: 900px) {
                 padding: 2.5px 10px;
             }
+            @media only screen and (max-width: 760px) {
+                padding: 2.3px 10px;
+            }
         }
         @media only screen and (max-width: 900px) {
             font-size: 2.7rem;
             padding-top: 16vh;
-            padding-bottom: 4vh;
+            padding-bottom: 10vh;
+        }
+        @media only screen and (max-width: 760px) {
+            font-size: 2.3rem;
+        }
+        @media only screen and (max-width: 395px) {
+            padding-top: 14vh;
         }
     }
     h2{
@@ -56,6 +65,9 @@
         text-align: center;
         &:before{
             content: "";
+        }
+        @media only screen and (max-width: 760px) {
+            padding: 15px 20px;
         }
         p{
             font-size: 26px;

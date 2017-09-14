@@ -31,7 +31,7 @@
 
 module.exports = {
 
-    props: ['data', 'config', 'name'],
+    mixins: [Fieldtype],
 
     computed: {
         hour: {

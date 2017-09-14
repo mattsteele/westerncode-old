@@ -316,6 +316,8 @@ export default {
                 this.$emit('saved', response.asset);
                 this.saving = false;
             });
+
+            this.$dispatch('changesMade', false);
         },
 
         /**

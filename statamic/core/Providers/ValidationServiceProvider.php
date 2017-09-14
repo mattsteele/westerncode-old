@@ -6,7 +6,9 @@ use Validator;
 use Statamic\API\Str;
 use Statamic\API\URL;
 use Statamic\API\Page;
+use Statamic\API\Path;
 use Statamic\API\Entry;
+use Statamic\API\AssetContainer;
 use Illuminate\Support\ServiceProvider;
 
 class ValidationServiceProvider extends ServiceProvider
@@ -22,6 +24,7 @@ class ValidationServiceProvider extends ServiceProvider
 
         $this->entrySlugExists();
         $this->pageUriExists();
+        $this->uniqueAssetFilename();
     }
 
     /**
@@ -64,6 +67,20 @@ class ValidationServiceProvider extends ServiceProvider
             }
 
             return $except === $existing->id();
+        });
+    }
+
+    /**
+     * Ensures that a given filename doesn't already exist in a given folder.
+     *
+     * @return void
+     */
+    private function uniqueAssetFilename()
+    {
+        Validator::extend('unique_asset_filename', function ($attribute, $value, $parameters, $validator) {
+            list($containerId, $path) = $parameters;
+            $newPath = Path::directory($path)  . '/' . $value . '.' . Path::extension($path);
+            return AssetContainer::find($containerId)->asset($newPath) === null;
         });
     }
 

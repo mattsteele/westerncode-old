@@ -81,14 +81,15 @@ var Vue = require('vue');
 
 module.exports = {
 
-    props: ['name', 'data', 'config'],
+    mixins: [Fieldtype],
 
     data: function() {
         return {
             blank: {},
             sortableOptions: {},
             min_rows: this.config.min_rows || 0,
-            max_rows: this.config.max_rows || false
+            max_rows: this.config.max_rows || false,
+            autoBindChangeWatcher: false
         };
     },
 
@@ -135,6 +136,7 @@ module.exports = {
 
 
         this.initSortable();
+        this.bindChangeWatcher();
 
         // Re-initialize sortable when the stacking mode changes
         // For instance, when toggling sneak peek.

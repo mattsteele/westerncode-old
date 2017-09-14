@@ -15,7 +15,9 @@
 <script>
 module.exports = {
 
-    props: ['data', 'name', 'config', 'suggestionsProp'],
+    mixins: [Fieldtype],
+
+    props: ['suggestionsProp'],
 
     data: function() {
         return {

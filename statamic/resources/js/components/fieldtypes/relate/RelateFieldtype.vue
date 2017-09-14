@@ -31,17 +31,20 @@ import RelateTags from './RelateTagsFieldtype.vue'
 
 module.exports = {
 
+    mixins: [Fieldtype],
+
     components: {
         'relate-panes': RelatePanes,
         'relate-tags': RelateTags
     },
 
-    props: ['data', 'config', 'name', 'suggestionsProp'],
+    props: ['suggestionsProp'],
 
     data: function() {
         return {
             loading: true,
-            suggestions: []
+            suggestions: [],
+            autoBindChangeWatcher: false
         }
     },
 
@@ -79,11 +82,13 @@ module.exports = {
                 this.suggestions = this.suggestionsProp;
                 this.removeInvalidData();
                 this.loading = false;
+                this.bindChangeWatcher();
             } else {
                 this.$http.post(cp_url('addons/suggest/suggestions'), this.config, function(data) {
                     this.suggestions = data;
                     this.removeInvalidData();
                     this.loading = false;
+                    this.bindChangeWatcher();
                 });
             }
         },

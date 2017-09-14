@@ -5,14 +5,12 @@ namespace Statamic\Http\ResourceServer;
 use Carbon\Carbon;
 use Statamic\API\Str;
 use Statamic\API\URL;
-use Statamic\Http\ResourceServer;
 use Illuminate\Filesystem\Filesystem;
 
 class Server
 {
     const RESOURCE_ADDON = 'addon';
     const RESOURCE_CP = 'cp';
-    const RESOURCE_THUMBNAIL = 'thumbnail';
 
     /**
      * @var Illuminate\Filesystem\Filesystem
@@ -109,8 +107,6 @@ class Server
         } elseif (Str::startsWith($uri, '/addon')) {
             $this->resource_type = self::RESOURCE_ADDON;
             $this->addon = explode('/', $uri)[2];
-        } elseif (Str::startsWith($uri, '/thumbs')) {
-            $this->resource_type = self::RESOURCE_THUMBNAIL;
         } else {
             $this->serve404Response();
         }
@@ -132,8 +128,6 @@ class Server
             $parts = array_slice($parts, 2);
         } elseif ($this->resource_type === self::RESOURCE_ADDON) {
             $parts = array_slice($parts, 3);
-        } elseif ($this->resource_type === self::RESOURCE_THUMBNAIL) {
-            $parts = explode('/', base64_decode($parts[2]));
         }
 
         $this->resource_uri = join('/', $parts);
@@ -150,8 +144,6 @@ class Server
             $this->base_path = realpath(__DIR__ . '/../../../resources/dist');
         } elseif ($this->resource_type === self::RESOURCE_ADDON) {
             $this->base_path = realpath(__DIR__.'/../../../../site/addons/'.$this->addon.'/resources/assets');
-        } elseif ($this->resource_type === self::RESOURCE_THUMBNAIL) {
-            $this->base_path = realpath(cache_path('glide'));
         }
     }
 

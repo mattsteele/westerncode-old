@@ -2,7 +2,10 @@
 
 namespace Statamic\Updater;
 
+use Statamic\API\Cache;
+use Statamic\API\Folder;
 use Illuminate\Console\Command;
+use Statamic\Events\StatamicUpdated;
 
 class Housekeeper
 {
@@ -55,7 +58,11 @@ class Housekeeper
             $update->update();
         }
 
+        Folder::delete(temp_path('update-unzipped'));
+        Cache::clear();
+
         // Fire an event for devs etc.
-        event('system.updated');
+        event(new StatamicUpdated($version, $previousVersion));
+        event('system.updated'); // @todo deprecated
     }
 }

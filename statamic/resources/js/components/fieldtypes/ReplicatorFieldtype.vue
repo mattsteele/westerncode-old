@@ -15,6 +15,8 @@
                             <li><a @click="collapseAll">{{ translate('cp.collapse_all') }}</a></li>
                             <li><a @click="expandAll">{{ translate('cp.expand_all') }}</a></li>
                             <li class="warning"><a @click="deleteSet(this)">{{ translate('cp.delete_set') }}</a></li>
+                            <li class="divider"></li>
+                            <li v-for="set in config.sets"><a @click.prevent="addSet(set.name, setIndex+1)"><i class="icon icon-add-to-list"></i> {{ set.display || set.name }}</a></li>
                         </ul>
                     </div>
                     <label>{{ setConfig(set.type).display || set.type }}</label>
@@ -74,12 +76,13 @@ var Vue = require('vue');
 
 module.exports = {
 
-    props: ['name', 'data', 'config'],
+    mixins: [Fieldtype],
 
     data: function() {
         return {
             blank: {},
-            sortableOptions: {}
+            sortableOptions: {},
+            autoBindChangeWatcher: false
         };
     },
 
@@ -96,6 +99,7 @@ module.exports = {
         }
 
         this.sortable();
+        this.bindChangeWatcher();
     },
 
     methods: {
@@ -104,7 +108,7 @@ module.exports = {
             var self = this;
             var start = '';
 
-            $(this.$el).find('.replicator-sets').sortable({
+            $(this.$el).children('.replicator-sets').sortable({
                 axis: "y",
                 revert: 175,
                 placeholder: 'stacked-placeholder',
@@ -144,7 +148,7 @@ module.exports = {
             });
         },
 
-        addSet: function(type) {
+        addSet: function(type, index) {
             var newSet = { type: type };
 
             // Get nulls for all the set's fields so Vue can track them more reliably.
@@ -153,8 +157,11 @@ module.exports = {
                 newSet[field.name] = field.default || Statamic.fieldtypeDefaults[field.type] || null;
             });
 
-            var index = this.data.length;
-            this.data.$set(index, newSet);
+            if (index === undefined) {
+                index = this.data.length;
+            }
+
+            this.data.splice(index, 0, newSet);
 
             this.sortable();
         },

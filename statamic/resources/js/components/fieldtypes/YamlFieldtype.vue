@@ -11,7 +11,7 @@ require('codemirror/mode/yaml/yaml');
 
 module.exports = {
 
-    props: ['name', 'data', 'config'],
+    mixins: [Fieldtype],
 
     ready: function() {
         var self = this;

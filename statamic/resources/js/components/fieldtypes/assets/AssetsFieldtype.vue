@@ -132,10 +132,7 @@ export default {
     },
 
 
-    mixins: [DetectsFileDragging],
-
-
-    props: ['data', 'config', 'name'],
+    mixins: [Fieldtype, DetectsFileDragging],
 
 
     data() {
@@ -146,7 +143,8 @@ export default {
             selectorViewMode: null,
             draggingFile: false,
             uploads: [],
-            innerDragging: false
+            innerDragging: false,
+            autoBindChangeWatcher: false
         };
     },
 
@@ -254,6 +252,7 @@ export default {
 
             if (! data || ! data.length) {
                 this.loading = false;
+                this.assets = [];
                 return;
             }
 
@@ -263,6 +262,7 @@ export default {
 
                 this.$nextTick(() => {
                     this.sortable();
+                    this.bindChangeWatcher();
                 });
             });
         },

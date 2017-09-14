@@ -1,4 +1,4 @@
-driver: mail
+driver: sendmail
 from_email: matt@westerncode.com
 from_name: Matt Steele
 host: ""

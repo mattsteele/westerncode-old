@@ -564,14 +564,16 @@ class Parser
 
                     if ( ! empty($values)) {
                         // parse the tag found with the value(s) related to it
-                        $replacement = $this->parseVariables("{{ $name }}$content{{ /$name }}", [$name => $values], $callback);
+                        $tmpname = md5($name);
+                        $vars = [$tmpname => $values];
+                        $replacement = $this->parseVariables("{{ $tmpname }}$content{{ /$tmpname }}", [$tmpname => $values], $callback);
                     }
                 } else {
                     // nope, this must be a (plugin) callback
                     if (is_null($callback)) {
                         // @todo what does this do?
                         $text = $this->createExtraction('__variables_not_callbacks', $text, $text, $text);
-                    } elseif (isset($cb_data[$name])) {
+                    } elseif (! empty($cb_data[$name])) {
                         // value not found in the data block, so we check the
                         // cumulative callback data block for a value and use that
                         $text = $this->extractLoopedTags($text, $cb_data, $callback);

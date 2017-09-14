@@ -86,6 +86,7 @@ export default {
                 case 'mp4':
                 case 'mpg':
                 case 'mpeg':
+                case 'mov':
                 case 'rm':
                 case 'swf':
                 case 'vob':

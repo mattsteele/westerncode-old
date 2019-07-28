@@ -3,7 +3,8 @@ locales:
   en:
     full: en_US
     name: English
-    url: http://westerncode.dev/
+    url: https://westerncode.test
+use_https: true
 timezone: America/Denver
 date_format: F jS, Y
 default_extension: md
@@ -23,7 +24,7 @@ filesystems:
     url: /site/themes
 app_key: g3l3pqsWxnFbCSmZ8XobaPvCoppeytba
 redactor:
-  - 
+  -
     name: Standard
     settings:
       buttons:
@@ -34,7 +35,7 @@ redactor:
         - unorderedlist
         - orderedlist
         - html
-  - 
+  -
     name: Basic
     settings:
       buttons:

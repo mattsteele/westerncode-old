@@ -2,31 +2,30 @@
 
 // Run 'npm install'
 
-var gulp        = require('gulp'),
-    sass        = require('gulp-sass'),
-    cssmin      = require('gulp-cssmin'),
-    rename      = require('gulp-rename'),
-    prefix      = require('gulp-autoprefixer'),
-    uglify      = require('gulp-uglify'),
-    concat      = require('gulp-concat'),
-    imagemin    = require('gulp-imagemin'),
-    beep        = require('beepbeep'),
-    svgmin      = require('gulp-svgmin'),
-    path        = require('path'),
-    browserSync = require('browser-sync').create();
+var gulp = require('gulp'),
+  sass = require('gulp-sass'),
+  cssmin = require('gulp-cssmin'),
+  rename = require('gulp-rename'),
+  prefix = require('gulp-autoprefixer'),
+  uglify = require('gulp-uglify'),
+  concat = require('gulp-concat'),
+  imagemin = require('gulp-imagemin'),
+  svgmin = require('gulp-svgmin'),
+  path = require('path'),
+  browserSync = require('browser-sync').create();
 
 
-gulp.task('serve', ['sass', 'js'], function() {
+gulp.task('serve', ['sass', 'js'], function () {
 
-    browserSync.init({
-            open: 'external',
-            host: 'westerncode.dev',
-            proxy: 'westerncode.dev'
-    });
+  browserSync.init({
+    open: 'external',
+    host: 'westerncode.test',
+    proxy: 'westerncode.test'
+  });
 
-    gulp.watch('src/scss/**/*.scss', ['sass']);
-    gulp.watch('src/js/**/*.js', ['js']);
-    gulp.watch('./*.html').on('change', browserSync.reload);
+  gulp.watch('src/scss/**/*.scss', ['sass']);
+  gulp.watch('src/js/**/*.js', ['js']);
+  gulp.watch('./*.html').on('change', browserSync.reload);
 });
 
 
@@ -35,27 +34,27 @@ gulp.task('sass', function () {
     .pipe(sass.sync().on('error', sass.logError))
     .pipe(prefix('last 2 versions'))
     .pipe(cssmin())
-    .pipe(rename({suffix: '.min'}))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/css'))
     .pipe(browserSync.stream())
-    .on('end', function () { beep(); });
+    .on('end', function () { });
 });
 
 
-gulp.task('js', function() {
+gulp.task('js', function () {
   return gulp.src('src/js/**/*.js')
     .pipe(uglify())
     .pipe(concat('app.js'))
-    .pipe(rename({suffix: '.min'}))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream());
 });
 
 
 gulp.task('svgmin', function () {
-    return gulp.src('src/svg/**/*.+(svg)')
-        .pipe(svgmin())
-        .pipe(gulp.dest('dist/svg'));
+  return gulp.src('src/svg/**/*.+(svg)')
+    .pipe(svgmin())
+    .pipe(gulp.dest('dist/svg'));
 });
 
 

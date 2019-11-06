@@ -8,6 +8,9 @@ An old business website built on Statamic CMS (PHP).
 ## To use:
 
 ```shell
+Use Node 11.15.0
+$ nvm use 11.15.0
+
 1. Start Valet
 $ valet start
 

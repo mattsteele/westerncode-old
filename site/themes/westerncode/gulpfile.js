@@ -16,13 +16,11 @@ var gulp = require('gulp'),
 
 
 gulp.task('serve', ['sass', 'js'], function () {
-
   browserSync.init({
     open: 'external',
     host: 'westerncode.test',
     proxy: 'westerncode.test'
   });
-
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['js']);
   gulp.watch('./*.html').on('change', browserSync.reload);
